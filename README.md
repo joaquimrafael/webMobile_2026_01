@@ -46,9 +46,8 @@ Dessa forma, o projeto vai além do ambiente acadêmico, conectando aprendizado 
 
 ### Desktop
 
-> <img align="center" alt="Wireframe_Desktp" height="100" width="120" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg">
+> <img align="center" alt="Wireframe_Desktp" height="100" width="120" src="https://www.figma.com/design/lfZtmsG7VfcqminW99WawK/El-Patron-page?node-id=0-1&m=dev&t=a1eBWPMEQm6uMLZG-1">
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/lfZtmsG7VfcqminW99WawK/El-Patron-page?node-id=0-1&embed-host=share" allowfullscreen></iframe>
 
 ### Mobile
 
