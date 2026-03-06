@@ -1,10 +1,10 @@
-# 💈 El Patron - Barbearia
+# El Patron - Barbearia
 
 Projeto desenvolvido para a disciplina de **Desenvolvimento Web Mobile**.
 
 ---
 
-## 👥 Integrantes
+## Integrantes
 
 | Nome | RA |
 |------|----|
@@ -15,21 +15,34 @@ Projeto desenvolvido para a disciplina de **Desenvolvimento Web Mobile**.
 
 ---
 
-## 💡 Processo de Ideação
+## Processo de Ideação
 
-O processo de ideação foi conduzido de forma colaborativa, com todos os integrantes participando ativamente na busca pela melhor solução. Cada membro apresentou uma proposta: João Pedro sugeriu um hortifruti, Gustavo uma barbearia, Caio a rede de supermercados Shibata e Joaquim uma loja de joias.
+O processo de ideação foi conduzido de forma colaborativa, com participação ativa de todos os integrantes do grupo. Cada membro apresentou uma proposta de negócio para ser o foco do projeto:
 
-Após debate em grupo, a barbearia **El Patron** foi escolhida por unanimidade, pois identificamos uma necessidade real do estabelecimento: a ausência de uma presença digital que facilitasse o agendamento e a comunicação com os clientes.
+| Integrante | Proposta |
+|---|---|
+| João Pedro | Hortifruti |
+| Gustavo | Barbearia |
+| Caio | Rede de supermercados Shibata |
+| Joaquim | Loja de joias |
+
+Após debate em grupo, a **Barbearia El Patron** foi escolhida por unanimidade. A decisão se baseou na identificação de uma necessidade real do estabelecimento: a **ausência de presença digital** — o que dificulta o agendamento de serviços e a comunicação eficiente com os clientes.
+
+O projeto visa, portanto, desenvolver uma solução web/mobile que preencha essa lacuna, proporcionando uma experiência mais moderna e acessível tanto para o negócio quanto para seus clientes.
 
 ---
 
-## 🤝 Caráter Extensionista
+## Caráter Extensionista
 
-O projeto tem como propósito apoiar o proprietário da barbearia **El Patron**, um pequeno empreendedor que não dispõe de recursos financeiros para contratar o desenvolvimento de um aplicativo. Por meio desta iniciativa, a equipe aplica os conhecimentos adquiridos em sala de aula para gerar impacto real na comunidade, contribuindo para a digitalização de um negócio local e promovendo o crescimento do empreendedor por meio da tecnologia.
+O projeto tem como propósito apoiar o proprietário da **Barbearia El Patron**, um pequeno empreendedor local que não dispõe de recursos financeiros para contratar o desenvolvimento de um aplicativo, nem de tempo para expandir sua presença no ambiente digital.
+
+Por meio desta iniciativa, a equipe coloca em prática os conhecimentos adquiridos ao longo da disciplina de Web/Mobile para gerar impacto real na comunidade, contribuindo para a digitalização do negócio, tornando o agendamento e a comunicação com os clientes mais acessíveis, e promovendo o crescimento sustentável do empreendedor por meio da tecnologia.
+
+Dessa forma, o projeto vai além do ambiente acadêmico, conectando aprendizado técnico com responsabilidade social.
 
 ---
 
-## 📱 Protótipo — Wireframes
+## Protótipo — Wireframes
 
 ### Desktop
 
