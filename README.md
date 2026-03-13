@@ -150,6 +150,7 @@ Dessa forma, o projeto vai além do ambiente acadêmico, conectando aprendizado 
 </defs>
 </svg>
 
+## Tutorial
 ```html
 O header, em mobile, contém o logo da barbearia e uma navbar com as seções da landing page.
 <body>
