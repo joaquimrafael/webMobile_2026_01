@@ -149,3 +149,95 @@ Dessa forma, o projeto vai além do ambiente acadêmico, conectando aprendizado 
 <image id="image0_10_152" width="150" height="150" preserveAspectRatio="none" xlink:href="data:image/jpeg;base64,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"/>
 </defs>
 </svg>
+
+```html
+O header, em mobile, contém o logo da barbearia e uma navbar com as seções da landing page.
+<body>
+    <header>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTplQaWtHVt9E3wHNlrjDvGJIBZIoU6BLrqgQ&s" alt="Logo El Patron">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Sobre nós</a></li>
+                <li><a href="#structure">Estrutura</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#localization">Localização</a></li>
+            </ul>
+        </nav>
+    </header>
+```
+```html
+Na home, temos uma seção com apenas o logo da barbearia em destaque no centro.
+    <main>
+        <section id="home">
+            <img src="https://upload.wikimedia.org/wikipedia/pt/thumb/4/43/FCBarcelona.svg/1280px-FCBarcelona.svg.png" alt="Logo Grande">
+        </section>
+```
+```html
+Na seguinte seção, explicitamos as informações gerais da barbearia, contendo uma imagem representativa, um subtitulo, a explicação em parágrafo e um botão para saber mais.
+        <section id="about">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Sobre nós">
+            <h2>Sobre nós</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolorum nihil dolor numquam provident officiis? Magni ab laudantium quas deserunt error soluta. At maiores ratione inventore animi exercitationem laboriosam. Repudiandae.</p>
+            <button type="button">botao</section>
+        </section>
+```
+```html
+Nesta seção, temos um carrossel interativo dos melhores cortes da barbearia. Inserimos 3 imagens para representar isso, mas é possível inserir mais. Além disso, dois botões laterais para controlar o carrossel, movendo ele pra direita e esquerda.
+        <section id="structure">
+            <h2>Estrutura e espaço físico</h2>
+            <button type="button">botao</button>
+            <figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Foto 1"></figure>
+            <figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Foto 2"></figure>
+            <figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Foto 3"></figure>
+            <button type="button">botao</button>
+        </section>
+```
+```html
+Esta seção contém uma seção com alguns artigos para mostrar os valores da barbearia.
+        <section id="services">
+            <h2>Serviços</h2>
+            <section>
+                <article>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Img 4">
+                    <h3>Titulo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magni fugit placeat maiores vero aspernatur, sit, voluptatibus est id, odit quia perferendis! Veritatis deleniti odio molestiae ea obcaecati non perferendis?</p>
+                </article>
+                <article>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Img 5">
+                    <h3>Titulo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magni fugit placeat maiores vero aspernatur, sit, voluptatibus est id, odit quia perferendis! Veritatis deleniti odio molestiae ea obcaecati non perferendis?</p>
+                </article>
+                <article>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Img 6">
+                    <h3>Titulo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magni fugit placeat maiores vero aspernatur, sit, voluptatibus est id, odit quia perferendis! Veritatis deleniti odio molestiae ea obcaecati non perferendis?</p>
+                </article>
+            </section>
+        </section>
+```
+```html
+Aqui, teremos a localização geográfica da barbearia. Pretendemos fazer algo mais elaborado, mas por enquanto temos apenas um iFrame.
+        <section id="localization">
+            <h2>Localização</h2>
+            <address>Rua da consolação</address>
+            <iframe src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" title="Mapa"></iframe>
+        </section>
+    </main>
+    ```
+```html
+No footer, temos referências para as outras seções da landing page e possíveis informações de contato.
+    <footer>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Sobre nós</a></li>
+            <li><a href="#structure">Estrutura</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#localization">Localização</a></li>
+            <li><a href="tel:+">999999999999</a></li>
+            <li><a href="http://">Instagram</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
+```
