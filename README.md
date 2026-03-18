@@ -225,7 +225,7 @@ Aqui, teremos a localização geográfica da barbearia. Pretendemos fazer algo m
             <iframe src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" title="Mapa"></iframe>
         </section>
     </main>
-    ```
+```
 ```html
 No footer, temos referências para as outras seções da landing page e possíveis informações de contato.
     <footer>
