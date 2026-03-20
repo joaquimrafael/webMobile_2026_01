@@ -150,7 +150,8 @@ Dessa forma, o projeto vai além do ambiente acadêmico, conectando aprendizado 
 </defs>
 </svg>
 
-## Tutorial
+## Tutorial - `index.html`
+
 ```html
 O header, em mobile, contém o logo da barbearia e uma navbar com as seções da landing page.
 <body>
@@ -242,81 +243,8 @@ No footer, temos referências para as outras seções da landing page e possíve
 </body>
 </html>
 ```
-
-```
-Começando o CSS, fazemos o reset da página.
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-}
-
-ul {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
 ```
 
-```
-Começando a estilização do cabeçalho, utilizamos parâmetros de design responsivo.
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-}
-
-header img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-}
-
-header nav ul {
-  display: flex;
-  gap: 1rem;
-}
-```
-
-```
-Na aba MAIN, SECTIONS e HOME, seguimos com os mesmos parâmetros de estilização responsiva e vertical para WEB Mobile.
-main {
-  display: flex;
-  flex-direction: column;
-}
-
-section {
-  padding: 2rem 1rem;
-}
-
-section h2 {
-  margin-bottom: 1rem;
-}
-
-#home {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 60vh;
-}
-
-#home img {
-  max-height: 200px;
-  object-fit: contain;
-}
-```
-
-```
 Seguindo com as abas ABOUT, STRUCTURE, SERVICES e LOCATION, continuamos com a verticalização da aba, alinhando os itens no centro e colocando uma cor de fundo.
 #about {
   display: flex;
@@ -389,3 +317,217 @@ Seguindo com as abas ABOUT, STRUCTURE, SERVICES e LOCATION, continuamos com a ve
   border: none;
 }
 ```
+
+---
+
+## Tutorial — `style.css`
+
+O arquivo `style.css` é responsável por toda a estilização visual da landing page da **El Patron**. Ele está organizado em blocos correspondentes a cada seção do HTML, além de uma camada de responsividade via media query.
+
+---
+
+### Reset Global
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+```
+
+Remove margens e paddings padrão de todos os elementos, adota `border-box` para facilitar o cálculo de dimensões e define a fonte base do projeto com fallback para fontes do sistema.
+
+Adicionalmente:
+- `ul` tem `list-style: none` — remove marcadores das listas de navegação e footer.
+- `a` tem `text-decoration: none` e `color: inherit` — links sem sublinhado, herdando a cor do elemento pai.
+- `img` tem `max-width: 100%` e `display: block` — imagens responsivas e sem espaço extra embaixo.
+
+---
+
+### Header
+
+```css
+header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+```
+
+Em **mobile**, o header é uma barra horizontal (`flex` em linha) contendo o logo (48×48 px) e a navbar. Os itens da navegação ficam em linha com `gap: 1rem`.
+
+---
+
+### Main
+
+```css
+main {
+  display: flex;
+  flex-direction: column;
+}
+```
+
+O `<main>` empilha todas as seções verticalmente em mobile.
+
+---
+
+### Seções — espaçamento padrão
+
+```css
+section {
+  padding: 2rem 1rem;
+}
+section h2 {
+  margin-bottom: 1rem;
+}
+```
+
+Toda seção recebe espaçamento interno padrão. Os títulos `h2` têm margem inferior para separar o cabeçalho do conteúdo.
+
+---
+
+### `#home` — Hero
+
+```css
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+#home img {
+  max-height: 200px;
+  object-fit: contain;
+}
+```
+
+Seção de destaque que ocupa pelo menos 60% da altura da viewport. O logo central tem altura máxima de 200 px e é centralizado horizontal e verticalmente.
+
+---
+
+### `#about` — Sobre Nós
+
+```css
+#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+#about img {
+  width: 100%;
+  object-fit: cover;
+}
+#about button {
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+}
+```
+
+Em mobile, o conteúdo é empilhado em coluna. A imagem ocupa toda a largura disponível. O botão de "saiba mais" tem padding interno confortável.
+
+---
+
+### `#structure` — Estrutura / Galeria
+
+```css
+#structure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#structure ul {
+  display: flex;
+}
+#structure figure img {
+  width: 100%;
+  object-fit: cover;
+}
+#structure > button {
+  border-radius: 9999px;
+  cursor: pointer;
+}
+```
+
+Galeria de fotos. Os cards do carrossel são dispostos em linha (`flex`). Os botões de navegação do carrossel são circulares (raio de borda `9999px`).
+
+---
+
+### `#services` — Serviços
+
+```css
+#services > section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0;
+}
+#services article {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#services article img {
+  width: 100%;
+  object-fit: cover;
+}
+```
+
+Em mobile, os cards de serviço são empilhados verticalmente. Cada `<article>` exibe imagem e texto lado a lado (`align-items: center`).
+
+---
+
+### `#localization` — Localização
+
+```css
+#localization {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+#localization iframe {
+  width: 100%;
+  min-height: 300px;
+  border: none;
+}
+```
+
+Seção exibindo endereço e mapa via `<iframe>`. O mapa ocupa 100% da largura disponível com altura mínima de 300 px e sem borda.
+
+---
+
+### Footer
+
+```css
+footer {
+  padding: 2rem 1rem;
+}
+footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+```
+
+Rodapé com links centralizados e distribuídos com `flex-wrap`, permitindo que quebrem linha em telas pequenas.
+
+---
+
+### Responsividade — Desktop (`min-width: 768px`)
+
+A partir de **768 px** de largura, o layout muda de mobile-first para uma estrutura de sidebar + conteúdo:
+
+| Elemento | Comportamento em desktop |
+|---|---|
+| `body > div` | `display: flex` — coloca header e main lado a lado |
+| `header` | Torna-se sidebar vertical com `height: 100vh` |
+| `nav > ul` | Itens da nav empilhados em coluna |
+| `section` | Padding aumentado para `3rem 2rem` |
+| `#about` | Imagem e texto ficam lado a lado (`flex-direction: row`); imagem ocupa 50% |
+| `#structure li` | Cada card ocupa `flex: 0 0 30%`, cabendo mais fotos por linha |
+| `#services > section` | Cards de serviço em linha (`flex-direction: row`) com cada article em coluna |
+| `#localization` | Endereço e mapa ficam lado a lado (`flex-direction: row`) |
