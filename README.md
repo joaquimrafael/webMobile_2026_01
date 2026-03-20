@@ -242,3 +242,150 @@ No footer, temos referências para as outras seções da landing page e possíve
 </body>
 </html>
 ```
+
+```
+Começando o CSS, fazemos o reset da página.
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+```
+
+```
+Começando a estilização do cabeçalho, utilizamos parâmetros de design responsivo.
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+header img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+header nav ul {
+  display: flex;
+  gap: 1rem;
+}
+```
+
+```
+Na aba MAIN, SECTIONS e HOME, seguimos com os mesmos parâmetros de estilização responsiva e vertical para WEB Mobile.
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  padding: 2rem 1rem;
+}
+
+section h2 {
+  margin-bottom: 1rem;
+}
+
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+#home img {
+  max-height: 200px;
+  object-fit: contain;
+}
+```
+
+```
+Seguindo com as abas ABOUT, STRUCTURE, SERVICES e LOCATION, continuamos com a verticalização da aba, alinhando os itens no centro e colocando uma cor de fundo.
+#about {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#about img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#about button {
+  align-self: flex-end;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+}
+
+#structure {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+#structure ul {
+  display: flex;
+}
+
+#structure figure img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#structure > button {
+  background-color: red;
+  cursor: pointer;
+}
+
+#structure > div {
+  display:flex;
+}
+
+#services > section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0;
+}
+
+#services article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#services article img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#localization {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#localization iframe {
+  width: 100%;
+  min-height: 300px;
+  border: none;
+}
+```
