@@ -2,7 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial",
+    sans-serif;
 }
 
 ul {
@@ -21,9 +23,9 @@ img {
 
 /*  HEADER  */
 header {
+  background-color: beige;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 1rem;
 }
 
@@ -55,6 +57,7 @@ section h2 {
 
 /*  #home — HERO */
 #home {
+  background-color: bisque;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,9 +71,16 @@ section h2 {
 
 /* #about — SOBRE NÓS */
 #about {
+  background-color: blueviolet;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
+}
+
+#about div {
+  display: flex;
+  flex-direction: column;
 }
 
 #about img {
@@ -79,16 +89,16 @@ section h2 {
 }
 
 #about button {
-  align-self: flex-end;
   padding: 0.5rem 1.5rem;
   cursor: pointer;
 }
 
 /* #structure — ESTRUTURA / GALERIA */
 #structure {
+  background-color: aquamarine;
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
 }
 
 #structure ul {
@@ -102,15 +112,17 @@ section h2 {
 
 #structure > button {
   background-color: red;
+  border-radius: 9999px;
   cursor: pointer;
 }
 
 #structure > div {
-  display:flex;
+  display: flex;
 }
 
 /* #services — SERVIÇOS */
 #services > section {
+  background-color: cadetblue;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -119,7 +131,7 @@ section h2 {
 
 #services article {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -130,9 +142,11 @@ section h2 {
 
 /* #localization — LOCALIZAÇÃO */
 #localization {
+  background-color: beige;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-items: center;
 }
 
 #localization iframe {
@@ -143,6 +157,7 @@ section h2 {
 
 /* FOOTER */
 footer {
+  background-color: green;
   padding: 2rem 1rem;
 }
 
@@ -155,6 +170,20 @@ footer ul {
 
 /* DESKTOP — a partir de 768px */
 @media (min-width: 768px) {
+  body > div {
+    display: flex;
+  }
+
+  header {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+  }
+
+  nav > ul {
+    display: flex;
+    flex-direction: column;
+  }
 
   section {
     padding: 3rem 2rem;
@@ -181,6 +210,24 @@ footer ul {
   }
 
   #services article {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* #localization — LOCALIZAÇÃO */
+  #localization {
+    background-color: beige;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  #localization iframe {
+    width: 100%;
+    min-height: 300px;
+    border: none;
   }
 }

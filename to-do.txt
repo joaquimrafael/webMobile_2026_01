@@ -1,3 +1,3 @@
-1. Colocar botões ao lado na sessão de estrutura - Gustavo
-2. Centralizar botão seção sobre nós
-3. Lateralizar endereço na localização
+5. ajustar orientação sobre nós
+6. ajustar orientação estrutura e espeaço fisico
+6. escrever documentação
