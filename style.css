@@ -25,13 +25,14 @@ img {
 header {
   background-color: beige;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem;
 }
 
 header img {
-  width: 48px;
-  height: 48px;
+  width: 4rem;
+  height: 4rem;
   object-fit: contain;
 }
 
@@ -51,8 +52,8 @@ section {
   padding: 2rem 1rem;
 }
 
-section h2 {
-  margin-bottom: 1rem;
+.core-img {
+  width: 12rem;
 }
 
 /*  #home — HERO */
@@ -81,15 +82,14 @@ section h2 {
 #about div {
   display: flex;
   flex-direction: column;
-}
-
-#about img {
-  width: 100%;
-  object-fit: cover;
+  padding: 0 6rem;
+  text-align: center;
+  gap: 1rem;
 }
 
 #about button {
   padding: 0.5rem 1.5rem;
+  border-radius: 999px;
   cursor: pointer;
 }
 
@@ -112,7 +112,6 @@ section h2 {
 
 #structure > button {
   background-color: red;
-  border-radius: 9999px;
   cursor: pointer;
 }
 
