@@ -26,7 +26,7 @@ O processo de ideação foi conduzido de forma colaborativa, com participação 
 | Caio | Rede de supermercados Shibata |
 | Joaquim | Loja de joias |
 
-Após debate em grupo, a **Barbearia El Patron** foi escolhida por unanimidade. A decisão se baseou na identificação de uma necessidade real do estabelecimento: a **ausência de presença digital** — o que dificulta o agendamento de serviços e a comunicação eficiente com os clientes.
+Após debate em grupo, a **Barbearia El Patron** foi escolhida por unanimidade. A decisão se baseou na identificação de uma necessidade real do estabelecimento: a **ausência de presença digital** �� o que dificulta o agendamento de serviços e a comunicação eficiente com os clientes.
 
 O projeto visa, portanto, desenvolver uma solução web/mobile que preencha essa lacuna, proporcionando uma experiência mais moderna e acessível tanto para o negócio quanto para seus clientes.
 
@@ -340,6 +340,8 @@ O arquivo `style.css` é responsável por toda a estilização visual da landing
 Remove margens e paddings padrão de todos os elementos, adota `border-box` para facilitar o cálculo de dimensões e define a fonte base do projeto com fallback para fontes do sistema.
 
 Adicionalmente:
+
+- `html` tem `overflow-x: hidden` — impede o elemento raiz de expandir além do viewport e evitar a linha/faixa lateral que surge quando algum elemento transborda horizontalmente.
 - `ul` tem `list-style: none` — remove marcadores das listas de navegação e footer.
 - `a` tem `text-decoration: none` e `color: inherit` — links sem sublinhado, herdando a cor do elemento pai.
 - `img` tem `max-width: 100%` e `display: block` — imagens responsivas e sem espaço extra embaixo.
@@ -356,7 +358,7 @@ header {
 }
 ```
 
-Em **mobile**, o header é uma barra horizontal (`flex` em linha) contendo o logo (48×48 px) e a navbar. Os itens da navegação ficam em linha com `gap: 1rem`.
+Em **mobile**, o header é uma barra horizontal (`flex` em linha) contendo o logo (48×48 px) e a navbar. `justify-content: space-between` separa logo e nav, com `gap: 1.5rem` como espaço mínimo entre eles. Os itens da navegação usam `flex-wrap: wrap` para quebrar linha quando necessário.
 
 ---
 
@@ -410,23 +412,23 @@ Seção de destaque que ocupa pelo menos 60% da altura da viewport. O logo centr
 ### `#about` — Sobre Nós
 
 ```css
-#about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+.about-article-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1.5rem;
 }
-#about img {
+.about-article-card img {
   width: 100%;
   object-fit: cover;
 }
-#about button {
-  padding: 0.5rem 1.5rem;
-  cursor: pointer;
+.about-text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 ```
 
-Em mobile, o conteúdo é empilhado em coluna. A imagem ocupa toda a largura disponível. O botão de "saiba mais" tem padding interno confortável.
+Em mobile, o card usa `display: grid` com `grid-template-rows: auto 1fr` — a imagem ocupa seu tamanho natural e `.about-text-box` preenche a altura restante. Isso permite que `justify-content: space-between` no text-box posicione o botão no rodapé do card.
 
 ---
 
@@ -524,10 +526,10 @@ A partir de **768 px** de largura, o layout muda de mobile-first para uma estrut
 | Elemento | Comportamento em desktop |
 |---|---|
 | `body > div` | `display: flex` — coloca header e main lado a lado |
-| `header` | Torna-se sidebar vertical com `height: 100vh` |
+| `header` | Torna-se sidebar vertical com `height: 100vh`; nav centralizada com `margin: auto 0` |
 | `nav > ul` | Itens da nav empilhados em coluna |
 | `section` | Padding aumentado para `3rem 2rem` |
-| `#about` | Imagem e texto ficam lado a lado (`flex-direction: row`); imagem ocupa 50% |
+| `#about` | Card muda para `grid-template-columns: 1fr 1fr` — imagem e texto lado a lado com mesma altura |
 | `#structure li` | Cada card ocupa `flex: 0 0 30%`, cabendo mais fotos por linha |
 | `#services > section` | Cards de serviço em linha (`flex-direction: row`) com cada article em coluna |
 | `#localization` | Endereço e mapa ficam lado a lado (`flex-direction: row`) |
