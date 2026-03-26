@@ -1,10 +1,61 @@
+:root {
+	/* Blue - Substituto do branco */
+	--blue-white: #ffffff;
+	--blue-white-hover: #fcfdfd;
+	--blue-white-active: #f5f7f9;
+	--blue-light: #fcfdfd;
+	--blue-light-hover: #f5f7f9;
+	--blue-light-active: #f0f3f6;
+	--blue-normal: #f9fafb;
+	--blue-normal-hover: #f2f4f7;
+	--blue-normal-active: #ebeef2;
+	--blue-dark: #f6f8f9;
+
+	/* Brown */
+	--brown-light: #f1efef;
+  	--brown-light-hover: #e9e7e7;
+  	--brown-light-active: #d2cdcd;
+	--brown-normal: #6e5e5e;
+	--brown-normal-hover: #635555;
+	--brown-normal-active: #584b4b;
+	--brown-dark: #534747;
+	--brown-dark-hover: #423838;
+	--brown-dark-active: #312a2a;
+	--brown-darker: #272121;
+
+	/* Red */
+	--red-light: #faeaeb;
+	--red-light-hover: #f7dfe1;
+	--red-light-active: #efbdc1;
+	--red-normal: #cc2936;
+	--red-normal-hover: #b82531;
+	--red-normal-active: #a3212b;
+	--red-dark: #991f29;
+	--red-dark-hover: #7a1920;
+	--red-dark-active: #5c1218;
+	--red-darker: #470e13;
+
+	/* Yellow */
+	--yellow-light: #fff7e6;
+	--yellow-light-hover: #fff3d9;
+	--yellow-light-active: #ffe7b0;
+	--yellow-normal: #ffb100;
+	--yellow-normal-hover: #e69f00;
+	--yellow-normal-active: #cc8e00;
+	--yellow-dark: #bf8500;
+	--yellow-dark-hover: #996a00;
+	--yellow-dark-active: #735000;
+	--yellow-darker: #593e00;
+
+	/* Font */
+	--primary-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial",
-    sans-serif;
+  font-family: var(--primary-font-family)
 }
 
 ul {
