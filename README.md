@@ -26,7 +26,7 @@ O processo de ideação foi conduzido de forma colaborativa, com participação 
 | Caio | Rede de supermercados Shibata |
 | Joaquim | Loja de joias |
 
-Após debate em grupo, a **Barbearia El Patron** foi escolhida por unanimidade. A decisão se baseou na identificação de uma necessidade real do estabelecimento: a **ausência de presença digital** �� o que dificulta o agendamento de serviços e a comunicação eficiente com os clientes.
+Após debate em grupo, a **Barbearia El Patron** foi escolhida por unanimidade. A decisão se baseou na identificação de uma necessidade real do estabelecimento: a **ausência de presença digital** o que dificulta o agendamento de serviços e a comunicação eficiente com os clientes.
 
 O projeto visa, portanto, desenvolver uma solução web/mobile que preencha essa lacuna, proporcionando uma experiência mais moderna e acessível tanto para o negócio quanto para seus clientes.
 
