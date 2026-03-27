@@ -26,7 +26,16 @@ O processo de ideação foi conduzido de forma colaborativa, com participação 
 | Caio | Rede de supermercados Shibata |
 | Joaquim | Loja de joias |
 
-Após debate em grupo, a **Barbearia El Patron** foi escolhida por unanimidade. A decisão se baseou na identificação de uma necessidade real do estabelecimento: a **ausência de presença digital** o que dificulta o agendamento de serviços e a comunicação eficiente com os clientes.
+Para selecionar a proposta mais adequada, o grupo avaliou cada alternativa com base nos seguintes critérios:
+
+| Critério | Descrição |
+|---|---|
+| Necessidade real | O negócio possui uma lacuna digital identificada e concreta? |
+| Viabilidade técnica | O escopo é compatível com uma landing page no tempo da disciplina? |
+| Acesso para validação | É possível interagir com o estabelecimento para validar decisões de design? |
+| Impacto extensionista | Há benefício claro para um empreendedor ou comunidade local? |
+
+A **Barbearia El Patron** se destacou em todos os critérios: o estabelecimento não possui site nem presença digital estruturada, o proprietário está acessível para validações, e a solução tem escopo bem delimitado — uma landing page com informações, galeria e localização. As demais propostas foram descartadas por apresentarem menor viabilidade extensionista (loja de joias), escopo excessivamente amplo (rede de supermercados Shibata) ou necessidade digital menos urgente (hortifruti).
 
 O projeto visa, portanto, desenvolver uma solução web/mobile que preencha essa lacuna, proporcionando uma experiência mais moderna e acessível tanto para o negócio quanto para seus clientes.
 
@@ -34,11 +43,15 @@ O projeto visa, portanto, desenvolver uma solução web/mobile que preencha essa
 
 ## Caráter Extensionista
 
-O projeto tem como propósito apoiar o proprietário da **Barbearia El Patron**, um pequeno empreendedor local que não dispõe de recursos financeiros para contratar o desenvolvimento de um aplicativo, nem de tempo para expandir sua presença no ambiente digital.
+O projeto apoia o proprietário da **Barbearia El Patron**, um pequeno empreendedor local sem recursos para contratar desenvolvimento de software e sem tempo para construir presença digital por conta própria.
 
-Por meio desta iniciativa, a equipe coloca em prática os conhecimentos adquiridos ao longo da disciplina de Web/Mobile para gerar impacto real na comunidade, contribuindo para a digitalização do negócio, tornando o agendamento e a comunicação com os clientes mais acessíveis, e promovendo o crescimento sustentável do empreendedor por meio da tecnologia.
+O impacto, porém, vai além do negócio atendido:
 
-Dessa forma, o projeto vai além do ambiente acadêmico, conectando aprendizado técnico com responsabilidade social.
+- **Para os clientes**: moradores do bairro e região passam a ter acesso fácil aos serviços, localização e contato da barbearia — reduzindo a dependência de indicações boca a boca e facilitando o agendamento.
+- **Para o empreendedor**: a presença digital estruturada amplia o alcance do negócio, podendo atrair novos clientes e contribuir para o crescimento sustentável da barbearia.
+- **Para a comunidade local**: apoiar a digitalização de pequenos negócios contribui para a valorização do comércio local e o fortalecimento da economia do bairro, mostrando que a tecnologia pode ser um instrumento de inclusão e desenvolvimento comunitário.
+
+Dessa forma, o projeto vai além do ambiente acadêmico, conectando aprendizado técnico com responsabilidade social concreta e mensurável.
 
 ---
 
@@ -46,8 +59,19 @@ Dessa forma, o projeto vai além do ambiente acadêmico, conectando aprendizado 
 
 ### Desktop
 
-
 ![Group 1](https://github.com/user-attachments/assets/19dd9e35-3985-4fb2-9289-4dedf34e57ad)
+
+O wireframe desktop apresenta o layout de **sidebar + conteúdo**: o header ocupa uma coluna vertical fixa à esquerda (com logo e navegação), enquanto o conteúdo principal preenche o restante da tela. As seções são, de cima para baixo:
+
+| Seção | O que apresenta |
+| --- | --- |
+| **Home** | Logo da barbearia em destaque centralizado |
+| **Sobre Nós** | Card com imagem e texto lado a lado, finalizando com botão de ação |
+| **Estrutura** | Carrossel com botões de navegação lateral, exibindo uma foto por vez |
+| **Serviços** | Três cards dispostos horizontalmente, cada um com imagem e descrição |
+| **Localização** | Endereço e mapa embarcado via iframe |
+| **Footer** | Links de navegação e informações de contato |
+
 <svg width="1280" height="3100" viewBox="0 0 1280 3100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g clip-path="url(#clip0_10_151)">
 <rect width="1280" height="3100" fill="white"/>
@@ -531,5 +555,50 @@ A partir de **768 px** de largura, o layout muda de mobile-first para uma estrut
 | `section` | Padding aumentado para `3rem 2rem` |
 | `#about` | Card muda para `grid-template-columns: 1fr 1fr` — imagem e texto lado a lado com mesma altura |
 | `#structure li` | Cada card ocupa `flex: 0 0 30%`, cabendo mais fotos por linha |
+| `.carrousel-list` | Recebe `flex: 1` para ocupar o espaço entre os botões e `justify-content: center` para centralizar a foto visível |
 | `#services > section` | Cards de serviço em linha (`flex-direction: row`) com cada article em coluna |
 | `#localization` | Endereço e mapa ficam lado a lado (`flex-direction: row`) |
+
+---
+
+## Tutorial — `script.js`
+
+### Carrossel interativo
+
+O carrossel da seção `#structure` é controlado por duas funções JavaScript. A lógica se baseia em um único elemento com `id="visible"` — apenas o `<li>` marcado com esse id é exibido (via CSS `display: flex`); todos os outros ficam ocultos (`display: none`).
+
+```js
+function carrouselLeftClick() {
+  const imagesList = document.getElementsByClassName("carrousel-list")[0];
+  const elements = imagesList.getElementsByTagName("li");
+
+  let currIndex = Array.from(elements).findIndex((el) => el.id == "visible");
+
+  elements[currIndex].removeAttribute("id");
+  elements[
+    (((currIndex - 1) % elements.length) + elements.length) % elements.length
+  ].id = "visible";
+}
+```
+
+`carrouselLeftClick` navega para a foto anterior. O cálculo `(((currIndex - 1) % n) + n) % n` garante que o índice faça wrap circular mesmo quando `currIndex` é `0` (evitando índice negativo em JavaScript).
+
+```js
+function carrouselRightClick() {
+  const imagesList = document.getElementsByClassName("carrousel-list")[0];
+  const elements = imagesList.getElementsByTagName("li");
+
+  let currIndex = Array.from(elements).findIndex((el) => el.id == "visible");
+  elements[currIndex].removeAttribute("id");
+  elements[(currIndex + 1) % elements.length].id = "visible";
+}
+```
+
+`carrouselRightClick` navega para a foto seguinte com wrap circular simples via módulo.
+
+Em ambas as funções o fluxo é:
+
+1. Localizar o `<li id="visible">` atual pelo índice.
+2. Remover o `id="visible"` dele.
+3. Calcular o novo índice (anterior ou próximo, com wrap).
+4. Atribuir `id="visible"` ao novo `<li>`, tornando-o visível.

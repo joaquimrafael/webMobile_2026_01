@@ -383,6 +383,11 @@ footer ul {
     flex: 0 0 30%;
   }
 
+  .carrousel-list {
+    flex: 1;
+    justify-content: center;
+  }
+
   /* Serviços: 3 cards lado a lado */
   #services > section {
     flex-direction: row;
