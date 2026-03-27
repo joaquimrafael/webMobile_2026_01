@@ -57,11 +57,7 @@ Dessa forma, o projeto vai além do ambiente acadêmico, conectando aprendizado 
 
 ## Protótipo — Wireframes
 
-### Desktop
-
-![Group 1](https://github.com/user-attachments/assets/19dd9e35-3985-4fb2-9289-4dedf34e57ad)
-
-O wireframe desktop apresenta o layout de **sidebar + conteúdo**: o header ocupa uma coluna vertical fixa à esquerda (com logo e navegação), enquanto o conteúdo principal preenche o restante da tela. As seções são, de cima para baixo:
+Os wireframes apresentam o layout de **sidebar + conteúdo**, as seções são, de cima para baixo:
 
 | Seção | O que apresenta |
 | --- | --- |
@@ -71,6 +67,10 @@ O wireframe desktop apresenta o layout de **sidebar + conteúdo**: o header ocup
 | **Serviços** | Três cards dispostos horizontalmente, cada um com imagem e descrição |
 | **Localização** | Endereço e mapa embarcado via iframe |
 | **Footer** | Links de navegação e informações de contato |
+
+### Desktop
+
+![Group 1](https://github.com/user-attachments/assets/19dd9e35-3985-4fb2-9289-4dedf34e57ad)
 
 <svg width="1280" height="3100" viewBox="0 0 1280 3100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g clip-path="url(#clip0_10_151)">
