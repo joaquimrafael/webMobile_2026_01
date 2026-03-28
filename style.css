@@ -85,6 +85,18 @@ ul {
   list-style: none;
 }
 
+input,
+button,
+textarea {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -102,6 +114,29 @@ img {
     "wght" 400,
     "GRAD" 0,
     "opsz" 24;
+}
+
+.large-button {
+  border: none;
+  color: var(--blue-normal);
+  background-color: var(--red-normal);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  padding: 0.5rem 1.5rem;
+  border-radius: 10rem;
+
+  min-width: 10rem;
+  min-height: 3rem;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  overflow-wrap: break-word;
 }
 
 .medium-button {
@@ -138,6 +173,17 @@ img {
   max-width: 3rem;
   max-height: 3rem;
   overflow-wrap: break-word;
+}
+
+.text-input,
+.text-area-input {
+  background-color: white;
+  width: 100%;
+  min-height: 2rem;
+  margin: 0;
+  border-radius: 0.7rem;
+  padding: 1rem;
+  max-width: 35rem;
 }
 
 /*  HEADER  */
@@ -303,6 +349,37 @@ section {
 
 .services-article-text-box p {
   color: var(--silver-normal);
+}
+
+/* #contact-us — FALE CONOSCO */
+#contact-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#contact-us > form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+#contact-us form input {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+#contact-us form textarea {
+  font-size: 1.1rem;
+  font-weight: 500;
+  min-height: 10rem;
+}
+
+#contact-us button {
+  margin-top: 1rem;
 }
 
 /* #localization — LOCALIZAÇÃO */
