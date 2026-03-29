@@ -20,7 +20,6 @@ O processo de ideação foi conduzido de forma colaborativa, com participação 
 
 | Integrante | Proposta |
 |------------|----------|
-
 | João Pedro | Hortifruti |
 | Gustavo | Barbearia |
 | Caio | Rede de supermercados Shibata |
@@ -30,7 +29,6 @@ Para selecionar a proposta mais adequada, o grupo avaliou cada alternativa com b
 
 | Critério | Descrição |
 |----------|-----------|
-
 | Necessidade real | O negócio possui uma lacuna digital identificada e concreta? |
 | Viabilidade técnica | O escopo é compatível com uma landing page no tempo da disciplina? |
 | Acesso para validação | É possível interagir com o estabelecimento para validar decisões de design? |
@@ -79,8 +77,8 @@ Os wireframes apresentam o layout de **sidebar + conteúdo**, as seções são, 
 
 ## Tutorial - `index.html`
 
-```html
 O header, em mobile, contém o logo da barbearia e uma navbar com as seções da landing page.
+```html
 <body>
     <header>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTplQaWtHVt9E3wHNlrjDvGJIBZIoU6BLrqgQ&s" alt="Logo El Patron">
@@ -96,16 +94,16 @@ O header, em mobile, contém o logo da barbearia e uma navbar com as seções da
     </header>
 ```
 
-```html
 Na home, temos uma seção com apenas o logo da barbearia em destaque no centro.
+```html
     <main>
         <section id="home">
             <img src="https://upload.wikimedia.org/wikipedia/pt/thumb/4/43/FCBarcelona.svg/1280px-FCBarcelona.svg.png" alt="Logo Grande">
         </section>
 ```
 
-```html
 Na seguinte seção, explicitamos as informações gerais da barbearia, contendo uma imagem representativa, um subtitulo, a explicação em parágrafo e um botão para saber mais.
+```html
         <section id="about">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Sobre nós">
             <h2>Sobre nós</h2>
@@ -114,8 +112,8 @@ Na seguinte seção, explicitamos as informações gerais da barbearia, contendo
         </section>
 ```
 
-```html
 Nesta seção, temos um carrossel interativo dos melhores cortes da barbearia. Inserimos 3 imagens para representar isso, mas é possível inserir mais. Além disso, dois botões laterais para controlar o carrossel, movendo ele pra direita e esquerda.
+```html
         <section id="structure">
             <h2>Estrutura e espaço físico</h2>
             <button type="button">botao</button>
@@ -126,8 +124,8 @@ Nesta seção, temos um carrossel interativo dos melhores cortes da barbearia. I
         </section>
 ```
 
-```html
 Esta seção contém uma seção com alguns artigos para mostrar os valores da barbearia.
+```html
         <section id="services">
             <h2>Serviços</h2>
             <section>
@@ -150,8 +148,8 @@ Esta seção contém uma seção com alguns artigos para mostrar os valores da b
         </section>
 ```
 
-```html
 Aqui, teremos a localização geográfica da barbearia. Pretendemos fazer algo mais elaborado, mas por enquanto temos apenas um iFrame.
+```html
         <section id="localization">
             <h2>Localização</h2>
             <address>Rua da consolação</address>
@@ -160,8 +158,8 @@ Aqui, teremos a localização geográfica da barbearia. Pretendemos fazer algo m
     </main>
 ```
 
-```html
 No footer, temos referências para as outras seções da landing page e possíveis informações de contato.
+```html
     <footer>
         <ul>
             <li><a href="#home">Home</a></li>
@@ -177,9 +175,8 @@ No footer, temos referências para as outras seções da landing page e possíve
 </html>
 ```
 
-```css
-
 Seguindo com as abas ABOUT, STRUCTURE, SERVICES e LOCATION, continuamos com a verticalização da aba, alinhando os itens no centro e colocando uma cor de fundo.
+```css
 #about {
   display: flex;
   flex-direction: column;
@@ -459,7 +456,6 @@ A partir de **768 px** de largura, o layout muda de mobile-first para uma estrut
 
 | Elemento | Comportamento em desktop |
 |----------|--------------------------|
-
 | `body > div` | `display: flex` — coloca header e main lado a lado |
 | `header` | Torna-se sidebar vertical com `height: 100vh`; nav centralizada com `margin: auto 0` |
 | `nav > ul` | Itens da nav empilhados em coluna |
