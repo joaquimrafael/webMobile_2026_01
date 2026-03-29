@@ -8,6 +8,7 @@ Projeto desenvolvido para a disciplina de **Desenvolvimento Web Mobile**.
 
 | Nome | RA |
 |------|----|
+
 | Gustavo Garabetti Munhoz | 10409258 |
 | João Pedro Rodrigues Vieira | 10403595 |
 | Joaquim Rafael Mariano Prieto Pereira | 10408805 |
@@ -20,7 +21,8 @@ Projeto desenvolvido para a disciplina de **Desenvolvimento Web Mobile**.
 O processo de ideação foi conduzido de forma colaborativa, com participação ativa de todos os integrantes do grupo. Cada membro apresentou uma proposta de negócio para ser o foco do projeto:
 
 | Integrante | Proposta |
-|---|---|
+|------------|----------|
+
 | João Pedro | Hortifruti |
 | Gustavo | Barbearia |
 | Caio | Rede de supermercados Shibata |
@@ -29,7 +31,8 @@ O processo de ideação foi conduzido de forma colaborativa, com participação 
 Para selecionar a proposta mais adequada, o grupo avaliou cada alternativa com base nos seguintes critérios:
 
 | Critério | Descrição |
-|---|---|
+|----------|-----------|
+
 | Necessidade real | O negócio possui uma lacuna digital identificada e concreta? |
 | Viabilidade técnica | O escopo é compatível com uma landing page no tempo da disciplina? |
 | Acesso para validação | É possível interagir com o estabelecimento para validar decisões de design? |
@@ -94,6 +97,7 @@ O header, em mobile, contém o logo da barbearia e uma navbar com as seções da
         </nav>
     </header>
 ```
+
 ```html
 Na home, temos uma seção com apenas o logo da barbearia em destaque no centro.
     <main>
@@ -101,6 +105,7 @@ Na home, temos uma seção com apenas o logo da barbearia em destaque no centro.
             <img src="https://upload.wikimedia.org/wikipedia/pt/thumb/4/43/FCBarcelona.svg/1280px-FCBarcelona.svg.png" alt="Logo Grande">
         </section>
 ```
+
 ```html
 Na seguinte seção, explicitamos as informações gerais da barbearia, contendo uma imagem representativa, um subtitulo, a explicação em parágrafo e um botão para saber mais.
         <section id="about">
@@ -110,6 +115,7 @@ Na seguinte seção, explicitamos as informações gerais da barbearia, contendo
             <button type="button">botao</section>
         </section>
 ```
+
 ```html
 Nesta seção, temos um carrossel interativo dos melhores cortes da barbearia. Inserimos 3 imagens para representar isso, mas é possível inserir mais. Além disso, dois botões laterais para controlar o carrossel, movendo ele pra direita e esquerda.
         <section id="structure">
@@ -121,6 +127,7 @@ Nesta seção, temos um carrossel interativo dos melhores cortes da barbearia. I
             <button type="button">botao</button>
         </section>
 ```
+
 ```html
 Esta seção contém uma seção com alguns artigos para mostrar os valores da barbearia.
         <section id="services">
@@ -144,6 +151,7 @@ Esta seção contém uma seção com alguns artigos para mostrar os valores da b
             </section>
         </section>
 ```
+
 ```html
 Aqui, teremos a localização geográfica da barbearia. Pretendemos fazer algo mais elaborado, mas por enquanto temos apenas um iFrame.
         <section id="localization">
@@ -153,6 +161,7 @@ Aqui, teremos a localização geográfica da barbearia. Pretendemos fazer algo m
         </section>
     </main>
 ```
+
 ```html
 No footer, temos referências para as outras seções da landing page e possíveis informações de contato.
     <footer>
@@ -169,7 +178,8 @@ No footer, temos referências para as outras seções da landing page e possíve
 </body>
 </html>
 ```
-```
+
+```css
 
 Seguindo com as abas ABOUT, STRUCTURE, SERVICES e LOCATION, continuamos com a verticalização da aba, alinhando os itens no centro e colocando uma cor de fundo.
 #about {
@@ -450,7 +460,8 @@ Rodapé com links centralizados e distribuídos com `flex-wrap`, permitindo que 
 A partir de **768 px** de largura, o layout muda de mobile-first para uma estrutura de sidebar + conteúdo:
 
 | Elemento | Comportamento em desktop |
-|---|---|
+|----------|--------------------------|
+
 | `body > div` | `display: flex` — coloca header e main lado a lado |
 | `header` | Torna-se sidebar vertical com `height: 100vh`; nav centralizada com `margin: auto 0` |
 | `nav > ul` | Itens da nav empilhados em coluna |
