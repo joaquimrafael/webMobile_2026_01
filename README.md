@@ -77,176 +77,136 @@ Os wireframes apresentam o layout de **sidebar + conteúdo**, as seções são, 
 
 ## Tutorial - `index.html`
 
-O header, em mobile, contém o logo da barbearia e uma navbar com as seções da landing page.
+O header, em mobile, contém o logo da barbearia (envolto em um link para `index.html`) e uma navbar com as seções da landing page. Cada item da navbar usa a classe `.navbar-link` para receber o estilo de hover.
+
 ```html
-<body>
-    <header>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTplQaWtHVt9E3wHNlrjDvGJIBZIoU6BLrqgQ&s" alt="Logo El Patron">
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">Sobre nós</a></li>
-                <li><a href="#structure">Estrutura</a></li>
-                <li><a href="#services">Serviços</a></li>
-                <li><a href="#localization">Localização</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+  <a href="index.html">
+    <img src="imgs/elpatron.jpg" alt="Logo El Patron" />
+  </a>
+  <nav>
+    <ul>
+      <li class="navbar-link"><a href="#home">Home</a></li>
+      <li class="navbar-link"><a href="#about">Sobre nós</a></li>
+      <li class="navbar-link"><a href="#structure">Estrutura</a></li>
+      <li class="navbar-link"><a href="#services">Serviços</a></li>
+      <li class="navbar-link"><a href="#contact-us">Fale conosco</a></li>
+      <li class="navbar-link"><a href="#localization">Localização</a></li>
+    </ul>
+  </nav>
+</header>
 ```
 
-Na home, temos uma seção com apenas o logo da barbearia em destaque no centro.
+Na home, temos uma seção com apenas o logo da barbearia em destaque no centro. O logo usa a classe `.core-img` para controlar seu tamanho.
+
 ```html
-    <main>
-        <section id="home">
-            <img src="https://upload.wikimedia.org/wikipedia/pt/thumb/4/43/FCBarcelona.svg/1280px-FCBarcelona.svg.png" alt="Logo Grande">
-        </section>
+<section id="home">
+  <a href="index.html">
+    <img src="imgs/elpatron.jpg" class="core-img" alt="Logo Grande" />
+  </a>
+</section>
 ```
 
-Na seguinte seção, explicitamos as informações gerais da barbearia, contendo uma imagem representativa, um subtitulo, a explicação em parágrafo e um botão para saber mais.
+Na seção `#about`, o conteúdo é agrupado em um `<article class="about-article-card">` que em desktop exibe imagem e texto lado a lado via grid. O texto fica em uma `<div class="about-text-box">` com título, parágrafo e um botão `.medium-button`.
+
 ```html
-        <section id="about">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Sobre nós">
-            <h2>Sobre nós</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolorum nihil dolor numquam provident officiis? Magni ab laudantium quas deserunt error soluta. At maiores ratione inventore animi exercitationem laboriosam. Repudiandae.</p>
-            <button type="button">botao</section>
-        </section>
+<section id="about">
+  <article class="about-article-card">
+    <img src="imgs/..." class="core-img" alt="Sobre nós" />
+    <div class="about-text-box">
+      <h2>Sobre nós</h2>
+      <p>...</p>
+      <button type="button" class="medium-button">Em breve...</button>
+    </div>
+  </article>
+</section>
 ```
 
-Nesta seção, temos um carrossel interativo dos melhores cortes da barbearia. Inserimos 3 imagens para representar isso, mas é possível inserir mais. Além disso, dois botões laterais para controlar o carrossel, movendo ele pra direita e esquerda.
+Na seção `#structure`, o carrossel é composto por dois botões `.small-button` (com ícones Material Symbols) e uma `<ul class="carrousel-list">`. Cada imagem é um `<li class="carrousel-img">`; o item inicialmente visível recebe `id="visible"`. O JavaScript alterna esse id para controlar qual foto é exibida.
+
 ```html
-        <section id="structure">
-            <h2>Estrutura e espaço físico</h2>
-            <button type="button">botao</button>
-            <figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Foto 1"></figure>
-            <figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Foto 2"></figure>
-            <figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Foto 3"></figure>
-            <button type="button">botao</button>
-        </section>
+<section id="structure">
+  <h2>Estrutura e espaço físico</h2>
+  <div class="carrousel">
+    <button type="button" class="small-button" onclick="carrouselLeftClick()">
+      <span class="material-symbols-outlined">chevron_left</span>
+    </button>
+    <ul class="carrousel-list">
+      <li class="carrousel-img">
+        <figure><img src="imgs/..." alt="Foto 1" /></figure>
+      </li>
+      <li class="carrousel-img" id="visible">
+        <figure><img src="imgs/..." alt="Foto 2" /></figure>
+      </li>
+      <!-- mais fotos -->
+    </ul>
+    <button type="button" class="small-button" onclick="carrouselRightClick()">
+      <span class="material-symbols-outlined">chevron_right</span>
+    </button>
+  </div>
+</section>
 ```
 
-Esta seção contém uma seção com alguns artigos para mostrar os valores da barbearia.
+A seção `#services` contém artigos com a classe `.services-article-card`. Cada card possui imagem(ns) e uma `<div class="services-article-text-box">` com título e descrição do serviço.
+
 ```html
-        <section id="services">
-            <h2>Serviços</h2>
-            <section>
-                <article>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Img 4">
-                    <h3>Titulo</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magni fugit placeat maiores vero aspernatur, sit, voluptatibus est id, odit quia perferendis! Veritatis deleniti odio molestiae ea obcaecati non perferendis?</p>
-                </article>
-                <article>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Img 5">
-                    <h3>Titulo</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magni fugit placeat maiores vero aspernatur, sit, voluptatibus est id, odit quia perferendis! Veritatis deleniti odio molestiae ea obcaecati non perferendis?</p>
-                </article>
-                <article>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" alt="Img 6">
-                    <h3>Titulo</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magni fugit placeat maiores vero aspernatur, sit, voluptatibus est id, odit quia perferendis! Veritatis deleniti odio molestiae ea obcaecati non perferendis?</p>
-                </article>
-            </section>
-        </section>
+<section id="services">
+  <h2>Serviços</h2>
+  <section>
+    <article class="services-article-card">
+      <img src="imgs/..." alt="Corte de Cabelo" />
+      <div class="services-article-text-box">
+        <h3>Corte de Cabelo</h3>
+        <p>...</p>
+      </div>
+    </article>
+    <!-- demais artigos -->
+  </section>
+</section>
 ```
 
-Aqui, teremos a localização geográfica da barbearia. Pretendemos fazer algo mais elaborado, mas por enquanto temos apenas um iFrame.
+A seção `#contact-us` contém um formulário de contato com campos de nome, e-mail, telefone e mensagem. O submit chama `sendMessage(event)` via `onsubmit`, que salva os dados no `localStorage` e exibe um alerta de confirmação.
+
 ```html
-        <section id="localization">
-            <h2>Localização</h2>
-            <address>Rua da consolação</address>
-            <iframe src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPzU4Bt3ZqZz5LnDqvom_yVLkCvjPK4JjUsw&s" title="Mapa"></iframe>
-        </section>
-    </main>
+<section id="contact-us">
+  <h2>Fale conosco</h2>
+  <form id="contact-form" onsubmit="sendMessage(event)">
+    <input type="text" id="full-name" name="full-name" placeholder="Nome Completo*" required class="text-input" /><br />
+    <input type="email" id="email" name="email" placeholder="Email*" required class="text-input" /><br />
+    <input type="tel" name="phone" id="phone" placeholder="Telefone" class="text-input" /><br />
+    <textarea name="message" id="message" placeholder="Mensagem*" required class="text-area-input"></textarea>
+    <button type="submit" class="large-button">Enviar</button>
+  </form>
+</section>
 ```
 
-No footer, temos referências para as outras seções da landing page e possíveis informações de contato.
+A seção `#localization` exibe o endereço em `<address>` e um mapa embarcado via `<iframe>` apontando para a localização real da barbearia no Google Maps.
+
 ```html
-    <footer>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">Sobre nós</a></li>
-            <li><a href="#structure">Estrutura</a></li>
-            <li><a href="#services">Serviços</a></li>
-            <li><a href="#localization">Localização</a></li>
-            <li><a href="tel:+">999999999999</a></li>
-            <li><a href="http://">Instagram</a></li>
-        </ul>
-    </footer>
-</body>
-</html>
+<section id="localization">
+  <div class="localization-text">
+    <h2>Localização</h2>
+    <address>Avenida lider 2465B, São Paulo, Brazil</address>
+  </div>
+  <iframe src="https://www.google.com/maps/embed?..." style="border: 0" allowfullscreen loading="lazy"></iframe>
+</section>
 ```
 
-Seguindo com as abas ABOUT, STRUCTURE, SERVICES e LOCATION, continuamos com a verticalização da aba, alinhando os itens no centro e colocando uma cor de fundo.
-```css
-#about {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+No footer, temos referências para todas as seções da landing page, incluindo "Fale conosco", além do número de telefone real e link direto para o Instagram da barbearia.
 
-#about img {
-  width: 100%;
-  object-fit: cover;
-}
-
-#about button {
-  align-self: flex-end;
-  padding: 0.5rem 1.5rem;
-  cursor: pointer;
-}
-
-#structure {
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-}
-
-#structure ul {
-  display: flex;
-}
-
-#structure figure img {
-  width: 100%;
-  object-fit: cover;
-}
-
-#structure > button {
-  background-color: red;
-  cursor: pointer;
-}
-
-#structure > div {
-  display:flex;
-}
-
-#services > section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 0;
-}
-
-#services article {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-#services article img {
-  width: 100%;
-  object-fit: cover;
-}
-
-#localization {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-#localization iframe {
-  width: 100%;
-  min-height: 300px;
-  border: none;
-}
+```html
+<footer>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">Sobre nós</a></li>
+    <li><a href="#structure">Estrutura</a></li>
+    <li><a href="#services">Serviços</a></li>
+    <li><a href="#localization">Localização</a></li>
+    <li><a href="#contact-us">Fale conosco</a></li>
+    <li><a href="tel:+">+55 (11) 9999-9999</a></li>
+    <li><a href="https://www.instagram.com/barbeariaelpatron___/" target="_blank">Instagram</a></li>
+  </ul>
+</footer>
 ```
 
 ---
@@ -257,6 +217,33 @@ O arquivo `style.css` é responsável por toda a estilização visual da landing
 
 ---
 
+### Variáveis CSS (`:root`)
+
+Toda a paleta de cores e tipografia é definida como custom properties no `:root`, permitindo reutilização consistente em todo o arquivo.
+
+```css
+:root {
+  /* Paleta de cores */
+  --brown-darker: #272121;   /* fundo do body */
+  --brown-dark:   #534747;   /* fundo do header */
+  --brown-dark-active: #312a2a; /* fundo dos cards */
+  --red-normal:   #cc2936;   /* cor primária dos botões */
+  --silver-normal: #c2bfb3;  /* cor de texto secundário */
+  /* ... demais variantes de brown, red, yellow, silver e blue */
+
+  /* Tamanhos de fonte */
+  --text-h1: 2.25rem;
+  --text-h2: 1.875rem;
+  --text-h3: 1.5rem;
+  --text-p:  1rem;
+  /* ... */
+}
+```
+
+Em mobile os tamanhos de fonte usam os valores acima; a media query de desktop os aumenta (ex.: `--text-h2` vai de `1.875rem` para `2.25rem`).
+
+---
+
 ### Reset Global
 
 ```css
@@ -264,32 +251,70 @@ O arquivo `style.css` é responsável por toda a estilização visual da landing
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: var(--primary-font-family);
 }
 ```
 
-Remove margens e paddings padrão de todos os elementos, adota `border-box` para facilitar o cálculo de dimensões e define a fonte base do projeto com fallback para fontes do sistema.
+Remove margens e paddings padrão de todos os elementos, adota `border-box` e aplica a fonte do sistema via variável.
 
 Adicionalmente:
 
-- `html` tem `overflow-x: hidden` — impede o elemento raiz de expandir além do viewport e evitar a linha/faixa lateral que surge quando algum elemento transborda horizontalmente.
+- `html` tem `overflow-x: hidden` — impede barra de rolagem horizontal causada por elementos que transbordam.
 - `ul` tem `list-style: none` — remove marcadores das listas de navegação e footer.
 - `a` tem `text-decoration: none` e `color: inherit` — links sem sublinhado, herdando a cor do elemento pai.
-- `img` tem `max-width: 100%` e `display: block` — imagens responsivas e sem espaço extra embaixo.
+- `img` tem `max-width: 100%`, `display: block` e `border-radius: 1rem` — imagens responsivas, sem espaço extra embaixo e com cantos arredondados.
+- `input`, `button` e `textarea` têm `appearance: none` e reset completo — remove estilos nativos do browser antes de aplicar os estilos do projeto.
+
+---
+
+### Tipografia base
+
+Os elementos `h1`–`h4` e `p` têm tamanhos e pesos definidos diretamente via variáveis:
+
+```css
+h2 { font-size: var(--text-h2); font-weight: 700; line-height: 1.3; }
+p  { font-size: var(--text-p);  line-height: 1.6; }
+```
+
+Classes utilitárias adicionais: `.text-lead`, `.text-large`, `.text-muted` (aplica `color: var(--silver-dark)` além do tamanho reduzido).
+
+---
+
+### Sistema de Botões
+
+O projeto define três variantes de botão. Todas compartilham `transition: background-color 0.2s ease, transform 0.1s ease` e um `transform: scale(0.97)` no `:active`.
+
+| Classe | Uso | Formato |
+| ------ | --- | ------- |
+| `.large-button` | Envio de formulário | Pílula (`border-radius: 10rem`), mínimo 10 × 3 rem |
+| `.medium-button` | Ação secundária (ex.: "Em breve...") | Retangular arredondado (`border-radius: 1rem`) |
+| `.small-button` | Navegação do carrossel | Circular (`border-radius: 100%`), máximo 3 × 3 rem |
+
+Todos usam `background-color: var(--red-normal)` e mudam para `--red-normal-hover` / `--red-normal-active` nos estados de interação.
+
+---
+
+### Formulário — `.text-input` / `.text-area-input`
+
+```css
+.text-input,
+.text-area-input {
+  background-color: white;
+  width: 100%;
+  max-width: 35rem;
+  min-height: 2rem;
+  border-radius: 0.7rem;
+  padding: 1rem;
+}
+```
+
+Campos do formulário de contato com fundo branco, largura total (limitada a 35 rem) e padding interno. O `<textarea>` recebe `min-height: 10rem` via seletor específico no bloco `#contact-us`.
 
 ---
 
 ### Header
 
-```css
-header {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-}
-```
-
-Em **mobile**, o header é uma barra horizontal (`flex` em linha) contendo o logo (48×48 px) e a navbar. `justify-content: space-between` separa logo e nav, com `gap: 1.5rem` como espaço mínimo entre eles. Os itens da navegação usam `flex-wrap: wrap` para quebrar linha quando necessário.
+Em **mobile**, o header é uma barra horizontal (`flex`) com `justify-content: space-between` separando logo e nav. O logo tem tamanho fixo de 4 × 4 rem. Os itens `.navbar-link` têm `padding: 0.5rem` e, no hover, ganham `background-color: var(--brown-normal-hover)` com `border-radius: 0.3rem`.
 
 ---
 
@@ -312,12 +337,9 @@ O `<main>` empilha todas as seções verticalmente em mobile.
 section {
   padding: 2rem 1rem;
 }
-section h2 {
-  margin-bottom: 1rem;
-}
 ```
 
-Toda seção recebe espaçamento interno padrão. Os títulos `h2` têm margem inferior para separar o cabeçalho do conteúdo.
+Toda seção recebe espaçamento interno padrão. A classe `.core-img` fixa `width: 12rem` para o logo usado na hero e no card "Sobre nós".
 
 ---
 
@@ -330,13 +352,10 @@ Toda seção recebe espaçamento interno padrão. Os títulos `h2` têm margem i
   align-items: center;
   min-height: 60vh;
 }
-#home img {
-  max-height: 200px;
-  object-fit: contain;
-}
+#home img { max-height: 200px; object-fit: contain; }
 ```
 
-Seção de destaque que ocupa pelo menos 60% da altura da viewport. O logo central tem altura máxima de 200 px e é centralizado horizontal e verticalmente.
+Seção de destaque que ocupa pelo menos 60% da altura da viewport. O logo é centralizado horizontal e verticalmente.
 
 ---
 
@@ -347,97 +366,92 @@ Seção de destaque que ocupa pelo menos 60% da altura da viewport. O logo centr
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 1.5rem;
-}
-.about-article-card img {
-  width: 100%;
-  object-fit: cover;
+  background-color: var(--brown-dark-active);
+  padding: 1rem;
+  border-radius: 1rem;
 }
 .about-text-box {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
+.about-text-box p { color: var(--silver-normal); }
 ```
 
-Em mobile, o card usa `display: grid` com `grid-template-rows: auto 1fr` — a imagem ocupa seu tamanho natural e `.about-text-box` preenche a altura restante. Isso permite que `justify-content: space-between` no text-box posicione o botão no rodapé do card.
+Em mobile, o card usa `grid-template-rows: auto 1fr` — a imagem ocupa seu tamanho natural e `.about-text-box` preenche a altura restante. Em desktop, muda para `grid-template-columns: 1fr 1fr` (imagem e texto lado a lado).
 
 ---
 
 ### `#structure` — Estrutura / Galeria
 
 ```css
-#structure {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#structure ul {
-  display: flex;
-}
-#structure figure img {
-  width: 100%;
-  object-fit: cover;
-}
-#structure > button {
-  border-radius: 9999px;
-  cursor: pointer;
-}
+.carrousel { display: flex; align-items: center; }
+.carrousel-img { display: none; }
+#visible     { display: flex; }
 ```
 
-Galeria de fotos. Os cards do carrossel são dispostos em linha (`flex`). Os botões de navegação do carrossel são circulares (raio de borda `9999px`).
+Apenas o `<li>` com `id="visible"` é exibido; todos os outros ficam ocultos. `.carrousel-list` recebe `display: flex` e `gap: 0.5rem`; em desktop ganha `flex: 1` e `justify-content: center`.
 
 ---
 
 ### `#services` — Serviços
 
 ```css
-#services > section {
+.services-article-card {
+  background-color: var(--brown-dark-active);
+  padding: 1rem;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  padding: 0;
-}
-#services article {
-  display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.5rem;
 }
-#services article img {
-  width: 100%;
-  object-fit: cover;
-}
+.services-article-text-box p { color: var(--silver-normal); }
 ```
 
-Em mobile, os cards de serviço são empilhados verticalmente. Cada `<article>` exibe imagem e texto lado a lado (`align-items: center`).
+Em mobile, os cards são empilhados verticalmente. Em desktop (`#services > section`), mudam para `flex-direction: row`.
+
+---
+
+### `#contact-us` — Fale Conosco
+
+```css
+#contact-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+#contact-us > form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+#contact-us form textarea { min-height: 10rem; }
+#contact-us button        { margin-top: 1rem; }
+```
+
+O formulário é centralizado com todos os campos empilhados verticalmente e limitados a `35rem` de largura.
 
 ---
 
 ### `#localization` — Localização
 
 ```css
-#localization {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-}
-#localization iframe {
-  width: 100%;
-  min-height: 300px;
-  border: none;
-}
+#localization { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+#localization iframe { width: 100%; min-height: 300px; border: none; }
+.localization-text address { color: var(--silver-normal); }
 ```
 
-Seção exibindo endereço e mapa via `<iframe>`. O mapa ocupa 100% da largura disponível com altura mínima de 300 px e sem borda.
+Seção exibindo endereço em `<address>` e mapa via `<iframe>`. O mapa ocupa 100% da largura com altura mínima de 300 px e sem borda.
 
 ---
 
 ### Footer
 
 ```css
-footer {
-  padding: 2rem 1rem;
-}
 footer ul {
   display: flex;
   flex-wrap: wrap;
@@ -446,25 +460,25 @@ footer ul {
 }
 ```
 
-Rodapé com links centralizados e distribuídos com `flex-wrap`, permitindo que quebrem linha em telas pequenas.
+Links centralizados com `flex-wrap`, permitindo quebra de linha em telas pequenas.
 
 ---
 
 ### Responsividade — Desktop (`min-width: 768px`)
 
-A partir de **768 px** de largura, o layout muda de mobile-first para uma estrutura de sidebar + conteúdo:
+A partir de **768 px**, o layout muda de empilhado para sidebar + conteúdo via `display: grid` no `body`:
 
 | Elemento | Comportamento em desktop |
 |----------|--------------------------|
-| `body > div` | `display: flex` — coloca header e main lado a lado |
-| `header` | Torna-se sidebar vertical com `height: 100vh`; nav centralizada com `margin: auto 0` |
+| `body` | `display: grid; grid-template-columns: 15.5rem 1fr` — header ocupa a coluna da esquerda |
+| `header` | Sidebar vertical com `height: 100vh`, `position: sticky` e `top: 0` |
 | `nav > ul` | Itens da nav empilhados em coluna |
 | `section` | Padding aumentado para `3rem 2rem` |
-| `#about` | Card muda para `grid-template-columns: 1fr 1fr` — imagem e texto lado a lado com mesma altura |
-| `#structure li` | Cada card ocupa `flex: 0 0 30%`, cabendo mais fotos por linha |
-| `.carrousel-list` | Recebe `flex: 1` para ocupar o espaço entre os botões e `justify-content: center` para centralizar a foto visível |
-| `#services > section` | Cards de serviço em linha (`flex-direction: row`) com cada article em coluna |
-| `#localization` | Endereço e mapa ficam lado a lado (`flex-direction: row`) |
+| `--text-h1/h2/h3/h4` | Tamanhos de fonte maiores redefinidos no `:root` da media query |
+| `.about-article-card` | `grid-template-columns: 1fr 1fr` — imagem e texto lado a lado |
+| `#structure li` | `flex: 0 0 30%`, cabendo mais fotos por linha |
+| `.carrousel-list` | `flex: 1` + `justify-content: center` para centralizar a foto visível entre os botões |
+| `#services > section` | Cards de serviço em linha (`flex-direction: row`) |
 
 ---
 
@@ -472,40 +486,77 @@ A partir de **768 px** de largura, o layout muda de mobile-first para uma estrut
 
 ### Carrossel interativo
 
-O carrossel da seção `#structure` é controlado por duas funções JavaScript. A lógica se baseia em um único elemento com `id="visible"` — apenas o `<li>` marcado com esse id é exibido (via CSS `display: flex`); todos os outros ficam ocultos (`display: none`).
+O carrossel da seção `#structure` centraliza a lógica de navegação em uma única função `moveCarousel(direction)`. As funções públicas chamadas pelos botões (`carrouselLeftClick` / `carrouselRightClick`) apenas passam a direção (`-1` ou `+1`) para ela.
 
 ```js
-function carrouselLeftClick() {
+function moveCarousel(direction) {
   const imagesList = document.getElementsByClassName("carrousel-list")[0];
   const elements = imagesList.getElementsByTagName("li");
 
-  let currIndex = Array.from(elements).findIndex((el) => el.id == "visible");
-
+  let currIndex = Array.from(elements).findIndex((el) => el.id === "visible");
   elements[currIndex].removeAttribute("id");
-  elements[
-    (((currIndex - 1) % elements.length) + elements.length) % elements.length
-  ].id = "visible";
+  elements[(currIndex + direction + elements.length) % elements.length].id = "visible";
 }
+
+function carrouselLeftClick()  { moveCarousel(-1); }
+function carrouselRightClick() { moveCarousel(1);  }
 ```
 
-`carrouselLeftClick` navega para a foto anterior. O cálculo `(((currIndex - 1) % n) + n) % n` garante que o índice faça wrap circular mesmo quando `currIndex` é `0` (evitando índice negativo em JavaScript).
+A fórmula `(currIndex + direction + elements.length) % elements.length` garante wrap circular em ambas as direções sem índice negativo: somar `elements.length` antes do módulo evita resultados negativos quando `direction` é `-1` e `currIndex` é `0`.
 
-```js
-function carrouselRightClick() {
-  const imagesList = document.getElementsByClassName("carrousel-list")[0];
-  const elements = imagesList.getElementsByTagName("li");
+O fluxo em cada clique:
 
-  let currIndex = Array.from(elements).findIndex((el) => el.id == "visible");
-  elements[currIndex].removeAttribute("id");
-  elements[(currIndex + 1) % elements.length].id = "visible";
-}
-```
-
-`carrouselRightClick` navega para a foto seguinte com wrap circular simples via módulo.
-
-Em ambas as funções o fluxo é:
-
-1. Localizar o `<li id="visible">` atual pelo índice.
-2. Remover o `id="visible"` dele.
-3. Calcular o novo índice (anterior ou próximo, com wrap).
+1. Localizar o `<li id="visible">` atual.
+2. Remover o atributo `id` dele (tornando-o oculto via CSS).
+3. Calcular o novo índice com wrap circular.
 4. Atribuir `id="visible"` ao novo `<li>`, tornando-o visível.
+
+---
+
+### Formulário de contato
+
+Duas funções gerenciam o envio do formulário `#contact-form`.
+
+#### `saveToLocalStorage(newData)`
+
+```js
+function saveToLocalStorage(newData) {
+  try {
+    const currentData = JSON.parse(localStorage.getItem("messages")) || [];
+    currentData.push(newData);
+    localStorage.setItem("messages", JSON.stringify(currentData));
+  } catch (err) {
+    console.error("Erro ao salvar no localStorage: ", err);
+  }
+}
+```
+
+Lê o array de mensagens já salvo em `localStorage` (chave `"messages"`), acrescenta o novo objeto e persiste o array atualizado. O bloco `try/catch` protege contra falhas de parsing ou situações em que o `localStorage` está indisponível.
+
+#### `sendMessage(event)`
+
+```js
+function sendMessage(event) {
+  event.preventDefault();
+
+  const form = document.getElementById("contact-form");
+  const newData = {
+    name:    form.querySelector("#full-name").value.trim(),
+    email:   form.querySelector("#email").value.trim(),
+    phone:   form.querySelector("#phone").value.trim(),
+    message: form.querySelector("#message").value.trim(),
+  };
+
+  saveToLocalStorage(newData);
+  window.alert(`Obrigado pela mensagem, ${newData.name}! Em breve, entraremos em contato por e-mail ou telefone!`);
+  form.reset();
+}
+```
+
+Chamada via `onsubmit` do formulário. O fluxo é:
+
+1. `event.preventDefault()` — impede o recarregamento da página.
+2. Coleta e limpa (`trim`) os valores dos campos.
+3. Chama `saveToLocalStorage` para persistir os dados.
+4. Exibe um alerta de confirmação com o nome do usuário.
+5. Reseta o formulário com `form.reset()`.
