@@ -385,6 +385,7 @@ section {
 .about-text-box {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -398,6 +399,10 @@ section {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+}
+
+#structure h2 {
+  text-align: center;
 }
 
 .carrousel {
@@ -432,6 +437,10 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+#services h2 {
+  text-align: center;
 }
 
 #services > section {
@@ -505,6 +514,10 @@ section {
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+}
+
+.localization-text > * {
+  text-align: center;
 }
 
 .localization-text address {
