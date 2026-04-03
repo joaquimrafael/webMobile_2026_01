@@ -66,10 +66,10 @@
 
   /* Font Sizes */
   --text-h1: 2.25rem;
-  --text-h2: 1.875rem; 
-  --text-h3: 1.5rem; 
-  --text-h4: 1.25rem;  
-  --text-p: 1rem;  
+  --text-h2: 1.875rem;
+  --text-h3: 1.5rem;
+  --text-h4: 1.25rem;
+  --text-p: 1rem;
   --text-lead: 1.25rem;
   --text-large: 1.125rem;
   --text-small: 0.875rem;
@@ -203,7 +203,9 @@ img {
 .large-button,
 .medium-button,
 .small-button {
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
 }
 
 .large-button:active,
@@ -304,7 +306,7 @@ header nav ul {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  
+
   justify-content: left;
 }
 
@@ -314,13 +316,12 @@ header nav ul {
 }
 
 .navbar-link:hover {
-  display:flex;
+  display: flex;
   align-items: center;
   border-radius: 0.3rem;
 
   background-color: var(--brown-normal-hover);
-} 
-
+}
 
 /* MAIN */
 main {
@@ -548,7 +549,7 @@ footer ul {
     position: sticky;
     top: 0;
     height: 100vh;
-    width: 55%
+    width: 55%;
   }
 
   header nav {
