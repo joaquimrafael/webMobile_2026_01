@@ -296,9 +296,14 @@ header {
   padding: 1rem;
 }
 
-header img {
-  width: 4rem;
-  height: 4rem;
+header a {
+  width: 20%;
+  min-width: 3rem;
+  max-width: 5rem;
+}
+
+header a img {
+  width: 100%;
   object-fit: contain;
 }
 
@@ -550,6 +555,10 @@ footer ul {
     top: 0;
     height: 100vh;
     width: 55%;
+  }
+
+  header a {
+    width: 100%;
   }
 
   header nav {
