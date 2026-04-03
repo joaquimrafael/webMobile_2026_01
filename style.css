@@ -208,7 +208,23 @@ header nav ul {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  
+  justify-content: left;
 }
+
+.navbar-link {
+  padding: 0.5rem;
+  transition: all 0.5s ease;
+}
+
+.navbar-link:hover {
+  display:flex;
+  align-items: center;
+  border-radius: 0.3rem;
+
+  background-color: var(--brown-normal-hover);
+} 
+
 
 /* MAIN */
 main {
@@ -434,11 +450,16 @@ footer ul {
 
   header nav {
     margin: auto 0;
+    max-width: 15.625rem;
   }
 
   nav > ul {
     display: flex;
     flex-direction: column;
+  }
+
+  .navbar-link {
+    padding: 0.5rem;
   }
 
   section {
