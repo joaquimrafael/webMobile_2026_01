@@ -116,6 +116,44 @@ img {
     "opsz" 24;
 }
 
+/*Hover nos botões*/
+
+.large-button:hover {
+  background-color: var(--red-normal-hover);
+}
+
+.medium-button:hover {
+  background-color: var(--red-normal-hover);
+}
+
+.medium-button:active {
+  background-color: var(--red-normal-active);
+}
+
+.large-button:active {
+  background-color: var(--red-normal-active);
+}
+
+.small-button:hover {
+  background-color: var(--red-normal-hover);
+}
+
+.small-button:active {
+  background-color: var(--red-normal-active);
+}
+
+.large-button,
+.medium-button,
+.small-button {
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.large-button:active,
+.medium-button:active,
+.small-button:active {
+  transform: scale(0.97);
+}
+
 .large-button {
   border: none;
   color: var(--blue-normal);
@@ -285,7 +323,6 @@ section {
 .carrousel {
   display: flex;
   align-items: center;
-  gap: 1rem;
 }
 
 .carrousel-img {
@@ -430,6 +467,7 @@ footer ul {
     position: sticky;
     top: 0;
     height: 100vh;
+    width: 55%
   }
 
   header nav {
