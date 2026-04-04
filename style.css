@@ -370,6 +370,10 @@ section {
   min-height: 60vh;
 }
 
+.bg-video {
+  display: none;
+}
+
 #home img {
   max-height: 200px;
   object-fit: contain;
@@ -590,7 +594,7 @@ footer ul {
 
   body {
     display: grid;
-    grid-template-columns: 15.5rem 1fr;
+    grid-template-columns: 10rem 1fr;
   }
 
   header {
@@ -604,7 +608,6 @@ footer ul {
     position: sticky;
     top: 0;
     height: 100vh;
-    width: 55%;
   }
 
   header a {
@@ -627,6 +630,47 @@ footer ul {
 
   section {
     padding: 3rem 2rem;
+  }
+
+  #home {
+    position: relative;
+  }
+
+  .bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    z-index: 0;
+    display: flex;
+  }
+
+  .fade-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      var(--brown-darker)
+    );
+    height: 75px;
+    z-index: 2;
+  }
+
+  #home .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1;
+  }
+
+  #home a {
+    z-index: 2;
   }
 
   /* About: imagem e texto lado a lado */
