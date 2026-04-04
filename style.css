@@ -604,6 +604,10 @@ footer ul {
     display: block;
   }
 
+  main {
+    align-items: center;
+  }
+
   header {
     display: flex !important;
     flex-direction: row;
@@ -657,6 +661,7 @@ footer ul {
 
   #home {
     position: relative;
+    width: 100%;
   }
 
   #hamburger-button {
@@ -700,6 +705,10 @@ footer ul {
     z-index: 2;
   }
 
+  #about {
+    max-width: 70rem;
+  }
+
   /* About: imagem e texto lado a lado */
   .about-article-card {
     grid-template-columns: 1fr 1fr;
@@ -710,13 +719,22 @@ footer ul {
     justify-content: space-between;
   }
 
+  #services {
+    max-width: 70rem;
+  }
+
   /* Serviços: 3 cards lado a lado */
   #services > section {
     flex-direction: row;
   }
 
   .carrousel {
-    height: 55vw;
+    height: 70vh;
+    max-width: 70rem;
+  }
+
+  #contact-us {
+    width: 100%;
   }
 
   #contact-us > form {
@@ -730,6 +748,8 @@ footer ul {
     gap: 1rem;
     align-items: center;
     justify-content: space-evenly;
+    width: 100%;
+    max-width: 44rem;
   }
 
   #localization iframe {
