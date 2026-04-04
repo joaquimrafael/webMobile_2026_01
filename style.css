@@ -719,6 +719,10 @@ footer ul {
     height: 55vw;
   }
 
+  #contact-us > form {
+    gap: 1rem;
+  }
+
   /* #localization — LOCALIZAÇÃO */
   #localization {
     display: flex;
