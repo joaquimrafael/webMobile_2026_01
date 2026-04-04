@@ -12,13 +12,12 @@
     <title>El Patron</title>
   </head>
   <body>
-    <header>
-      <a href="index.html">
-        <img
-          src="imgs/elpatron.jpg"
-          alt="Logo El Patron"
-        />
-      </a>
+    <img
+      src="./imgs/burger-menu.png"
+      id="hamburger-button"
+      onclick="toggleNavbar()"
+    />
+    <header id="header-closed">
       <nav>
         <ul>
           <li class="navbar-link"><a href="#home">Home</a></li>
@@ -32,12 +31,25 @@
     </header>
     <main>
       <section id="home">
-        <a href="index.html">
-          <img
-            src="imgs/elpatron.jpg"
-            class="core-img"
-            alt="Logo Grande"
+        <video
+          width="640"
+          autoplay
+          muted
+          loop
+          disablepictureinpicture
+          class="bg-video"
+        >
+          <source
+            src="./videos/YTDown.com_YouTube_Fire-Barber-Shop-Promo-ATLMDERON_Media_GSc3uAm8rQ_001_1080p.mp4"
+            type="video/mp4"
           />
+        </video>
+
+        <div class="fade-bottom"></div>
+        <div class="overlay"></div>
+
+        <a href="">
+          <img src="imgs/elpatron.jpg" class="core-img" alt="Logo Grande" />
         </a>
       </section>
 
@@ -66,7 +78,7 @@
         <div class="carrousel">
           <button
             type="button"
-            class="small-button"
+            class="carousel-button"
             onclick="carrouselLeftClick()"
           >
             <span class="material-symbols-outlined"> chevron_left </span>
@@ -74,42 +86,33 @@
 
           <ul class="carrousel-list">
             <li class="carrousel-img">
-              <figure>
-                <img
-                  src="imgs/Screenshot 2026-04-02 at 21.27.30.png"
-                  alt="Foto 1"
-                />
-              </figure>
+              <img
+                src="imgs/Screenshot 2026-04-02 at 21.27.30.png"
+                alt="Foto 1"
+              />
             </li>
             <li class="carrousel-img" id="visible">
-              <figure>
-                <img
-                  src="imgs/Screenshot 2026-04-02 at 21.28.09.png"
-                  alt="Foto 2"
-                />
-              </figure>
+              <img
+                src="imgs/Screenshot 2026-04-02 at 21.28.09.png"
+                alt="Foto 2"
+              />
             </li>
             <li class="carrousel-img">
-              <figure>
-                <img
-                  src="imgs/Screenshot 2026-04-02 at 21.40.22.png"
-                  alt="Foto 3"
-                />
-              </figure>
+              <img
+                src="imgs/Screenshot 2026-04-02 at 21.40.22.png"
+                alt="Foto 3"
+              />
             </li>
             <li class="carrousel-img">
-              <figure>
-                <img
-                  src="imgs/Screenshot 2026-04-02 at 21.45.51.png"
-                  alt="Foto 4"
-                />
-              </figure>
-            </li>
+              <img
+                src="imgs/Screenshot 2026-04-02 at 21.45.51.png"
+                alt="Foto 4"
+              />
             </li>
           </ul>
           <button
             type="button"
-            class="small-button"
+            class="carousel-button"
             onclick="carrouselRightClick()"
           >
             <span class="material-symbols-outlined"> chevron_right </span>
@@ -121,10 +124,7 @@
         <h2>Serviços</h2>
         <section>
           <article class="services-article-card">
-            <img
-              src="imgs/Screenshot 2026-04-02 at 21.26.09.png"
-              alt="Img 4"
-            />
+            <img src="imgs/Screenshot 2026-04-02 at 21.26.09.png" alt="Img 4" />
             <div class="services-article-text-box">
               <h3>Corte de Cabelo</h3>
               <p>
@@ -143,8 +143,8 @@
               <h3>Barba</h3>
               <p>
                 Aparagem e modelagem de barba com navalha, toalha quente e
-                produtos premium. Cuide da sua barba com quem realmente
-                entende do assunto.
+                produtos premium. Cuide da sua barba com quem realmente entende
+                do assunto.
               </p>
             </div>
           </article>
@@ -154,9 +154,9 @@
               alt="Combo corte e barba"
             />
             <img
-            src="imgs/Screenshot 2026-04-02 at 21.36.26.png"
-            alt="Combo corte e barba"
-          />
+              src="imgs/Screenshot 2026-04-02 at 21.36.26.png"
+              alt="Combo corte e barba"
+            />
             <div class="services-article-text-box">
               <h3>Combo Corte + Barba</h3>
               <p>
@@ -172,10 +172,36 @@
       <section id="contact-us">
         <h2>Fale conosco</h2>
         <form id="contact-form" onsubmit="sendMessage(event)">
-          <input type="text" id="full-name" name="full-name" placeholder="Nome Completo*" required class="text-input"><br>
-          <input type="email" id="email" name="email" placeholder="Email*" required class="text-input"><br>
-          <input type="tel" name="phone" id="phone" placeholder="Telefone" class="text-input"><br>
-          <textarea name="message" id="message" placeholder="Mensagem*" required class="text-area-input"></textarea>
+          <input
+            type="text"
+            id="full-name"
+            name="full-name"
+            placeholder="Nome Completo*"
+            required
+            class="text-input"
+          />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email*"
+            required
+            class="text-input"
+          />
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder="Telefone"
+            class="text-input"
+          />
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Mensagem*"
+            required
+            class="text-area-input"
+          ></textarea>
           <button type="submit" class="large-button">Enviar</button>
         </form>
       </section>
@@ -203,7 +229,13 @@
           <li><a href="#localization">Localização</a></li>
           <li><a href="#contact-us">Fale conosco</a></li>
           <li><a href="tel:+">+55 (11) 9999-9999</a></li>
-          <li><a href="https://www.instagram.com/barbeariaelpatron___/" target="_blank">Instagram</a></li>
+          <li>
+            <a
+              href="https://www.instagram.com/barbeariaelpatron___/"
+              target="_blank"
+              >Instagram</a
+            >
+          </li>
         </ul>
       </footer>
     </main>

@@ -66,10 +66,10 @@
 
   /* Font Sizes */
   --text-h1: 2.25rem;
-  --text-h2: 1.875rem; 
-  --text-h3: 1.5rem; 
-  --text-h4: 1.25rem;  
-  --text-p: 1rem;  
+  --text-h2: 1.875rem;
+  --text-h3: 1.5rem;
+  --text-h4: 1.25rem;
+  --text-p: 1rem;
   --text-lead: 1.25rem;
   --text-large: 1.125rem;
   --text-small: 0.875rem;
@@ -134,11 +134,6 @@ small {
   color: var(--silver-dark);
 }
 
-body {
-  color: var(--blue-normal);
-  background-color: var(--brown-darker);
-}
-
 ul {
   list-style: none;
 }
@@ -155,13 +150,16 @@ textarea {
   margin: 0;
 }
 
+:focus {
+  outline: none;
+}
+
 a {
   text-decoration: none;
   color: inherit;
 }
 
 img {
-  max-width: 100%;
   display: block;
   border-radius: 1rem;
 }
@@ -203,7 +201,9 @@ img {
 .large-button,
 .medium-button,
 .small-button {
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
 }
 
 .large-button:active,
@@ -271,6 +271,21 @@ img {
   overflow-wrap: break-word;
 }
 
+.carousel-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--red-normal);
+  color: var(--blue-normal);
+  border-radius: 100%;
+  width: 10vw;
+  height: 10vw;
+  padding: 3vw;
+  max-width: 3rem;
+  max-height: 3rem;
+  cursor: pointer;
+}
+
 .text-input,
 .text-area-input {
   background-color: white;
@@ -282,45 +297,69 @@ img {
   max-width: 35rem;
 }
 
+body {
+  color: var(--blue-normal);
+  background-color: var(--brown-darker);
+  display: grid;
+  z-index: 0;
+}
+
 /*  HEADER  */
 header {
   color: var(--blue-normal);
   background-color: var(--brown-dark);
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: none;
+  flex-direction: column;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  justify-content: flex-start;
   gap: 1.5rem;
   padding: 1rem;
+  position: sticky;
+
+  top: 0;
+  height: 100vh;
 }
 
-header img {
-  width: 4rem;
-  height: 4rem;
-  object-fit: contain;
+#header-closed {
+  display: none;
 }
 
-header nav ul {
+#header-opened {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  
-  justify-content: left;
+}
+
+#hamburger-button {
+  position: fixed;
+  padding: 1rem;
+  width: 30vw;
+  max-width: 6rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+header a {
+  width: 100%;
+}
+
+header a img {
+  display: none;
+}
+
+header nav {
+  margin: auto 0;
+  max-width: 15.625rem;
+}
+
+nav > ul {
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar-link {
   padding: 0.5rem;
-  transition: all 0.5s ease;
 }
-
-.navbar-link:hover {
-  display:flex;
-  align-items: center;
-  border-radius: 0.3rem;
-
-  background-color: var(--brown-normal-hover);
-} 
-
 
 /* MAIN */
 main {
@@ -344,6 +383,10 @@ section {
   justify-content: center;
   align-items: center;
   min-height: 60vh;
+}
+
+.bg-video {
+  display: none;
 }
 
 #home img {
@@ -379,6 +422,7 @@ section {
 .about-text-box {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -392,19 +436,11 @@ section {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  padding: 1rem;
 }
 
-.carrousel {
-  display: flex;
-  align-items: center;
-}
-
-.carrousel-img {
-  display: none;
-}
-
-#visible {
-  display: flex;
+#structure h2 {
+  text-align: center;
 }
 
 #structure ul {
@@ -412,12 +448,36 @@ section {
   gap: 0.5rem;
 }
 
-#structure figure img {
-  width: 100%;
+#structure img {
   object-fit: cover;
 }
 
 #structure > div {
+  display: flex;
+}
+
+.carrousel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 65vw;
+  gap: 1rem;
+}
+.carrousel-list {
+  width: 100%;
+  height: 100%;
+}
+
+.carrousel-img {
+  display: none;
+  width: 100%;
+}
+
+.carrousel-img img {
+  width: 100%;
+}
+
+#visible {
   display: flex;
 }
 
@@ -426,6 +486,10 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+#services h2 {
+  text-align: center;
 }
 
 #services > section {
@@ -501,6 +565,10 @@ section {
   align-items: center;
 }
 
+.localization-text > * {
+  text-align: center;
+}
+
 .localization-text address {
   color: var(--silver-normal);
 }
@@ -533,40 +601,103 @@ footer ul {
   }
 
   body {
-    display: grid;
-    grid-template-columns: 15.5rem 1fr;
+    display: block;
   }
 
   header {
-    display: flex;
-    flex-direction: column;
-    grid-column-start: 1;
-    grid-column-end: 1;
-    justify-content: flex-start;
-    gap: 2rem;
-
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    width: 55%
+    display: flex !important;
+    flex-direction: row;
+    height: auto;
+    width: 100vw;
+    z-index: 3;
+    flex-direction: row;
+    position: absolute;
+    background: transparent;
   }
 
   header nav {
-    margin: auto 0;
-    max-width: 15.625rem;
+    display: flex;
+    margin: 0;
+    max-width: 100vw;
   }
 
-  nav > ul {
-    display: flex;
-    flex-direction: column;
+  header a {
+    width: 10vh;
+    min-width: 3rem;
+    max-width: 5rem;
+  }
+
+  header nav ul {
+    width: 100vw;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-evenly;
+  }
+
+  header nav ul li a {
+    font-weight: 600;
   }
 
   .navbar-link {
     padding: 0.5rem;
+    transition: all 0.5s ease;
+  }
+
+  .navbar-link:hover {
+    display: flex;
+    align-items: center;
+    border-radius: 0.3rem;
+
+    background-color: var(--brown-normal-hover);
   }
 
   section {
     padding: 3rem 2rem;
+  }
+
+  #home {
+    position: relative;
+  }
+
+  #hamburger-button {
+    display: none;
+  }
+
+  .bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    z-index: 0;
+    display: flex;
+  }
+
+  .fade-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      var(--brown-darker)
+    );
+    height: 75px;
+    z-index: 2;
+  }
+
+  #home .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1;
+  }
+
+  #home a {
+    z-index: 2;
   }
 
   /* About: imagem e texto lado a lado */
@@ -579,19 +710,17 @@ footer ul {
     justify-content: space-between;
   }
 
-  /* Galeria: cards menores, cabem mais */
-  #structure li {
-    flex: 0 0 30%;
-  }
-
-  .carrousel-list {
-    flex: 1;
-    justify-content: center;
-  }
-
   /* Serviços: 3 cards lado a lado */
   #services > section {
     flex-direction: row;
+  }
+
+  .carrousel {
+    height: 55vw;
+  }
+
+  #contact-us > form {
+    gap: 1rem;
   }
 
   /* #localization — LOCALIZAÇÃO */
