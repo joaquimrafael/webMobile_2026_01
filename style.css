@@ -331,7 +331,7 @@ header {
 #hamburger-button {
   position: fixed;
   padding: 1rem;
-  width: 30vw;
+  width: 18vw;
   max-width: 6rem;
   cursor: pointer;
   z-index: 1;
