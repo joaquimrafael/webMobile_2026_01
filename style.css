@@ -357,6 +357,7 @@ nav > ul {
 
 .navbar-link {
   padding: 0.5rem;
+  cursor: pointer;
 }
 
 /* MAIN */
