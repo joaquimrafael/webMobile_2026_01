@@ -60,10 +60,11 @@ Os wireframes apresentam o layout de **sidebar + conteúdo**, as seções são, 
 
 | Seção | O que apresenta |
 | --- | --- |
-| **Home** | Logo da barbearia em destaque centralizado |
+| **Home** | Vídeo de fundo em loop com overlay escuro e logo da barbearia centralizado |
 | **Sobre Nós** | Card com imagem e texto lado a lado, finalizando com botão de ação |
 | **Estrutura** | Carrossel com botões de navegação lateral, exibindo uma foto por vez |
 | **Serviços** | Três cards dispostos horizontalmente, cada um com imagem e descrição |
+| **Fale Conosco** | Formulário de contato com campos de nome, e-mail, telefone e mensagem |
 | **Localização** | Endereço e mapa embarcado via iframe |
 | **Footer** | Links de navegação e informações de contato |
 
@@ -77,13 +78,12 @@ Os wireframes apresentam o layout de **sidebar + conteúdo**, as seções são, 
 
 ## Tutorial - `index.html`
 
-O header, em mobile, contém o logo da barbearia (envolto em um link para `index.html`) e uma navbar com as seções da landing page. Cada item da navbar usa a classe `.navbar-link` para receber o estilo de hover.
+Em mobile, o header fica oculto por padrão (`id="header-closed"`) e é aberto/fechado por um botão hambúrguer fixo no canto superior esquerdo. O botão chama `toggleNavbar()` ao ser clicado. A navbar contém as seções da landing page; cada item usa a classe `.navbar-link` para receber o estilo de hover.
 
 ```html
-<header>
-  <a href="index.html">
-    <img src="imgs/elpatron.jpg" alt="Logo El Patron" />
-  </a>
+<img src="./imgs/burger-menu.png" id="hamburger-button" onclick="toggleNavbar()" />
+
+<header id="header-closed">
   <nav>
     <ul>
       <li class="navbar-link"><a href="#home">Home</a></li>
@@ -97,11 +97,16 @@ O header, em mobile, contém o logo da barbearia (envolto em um link para `index
 </header>
 ```
 
-Na home, temos uma seção com apenas o logo da barbearia em destaque no centro. O logo usa a classe `.core-img` para controlar seu tamanho.
+Na home, a seção exibe um vídeo em loop como fundo (`<video class="bg-video">`), uma `<div class="overlay">` para escurecer o vídeo, um gradiente de fade na borda inferior (`<div class="fade-bottom">`) e o logo da barbearia centralizado sobre tudo. Em mobile, o vídeo fica oculto via CSS e apenas o logo é exibido.
 
 ```html
 <section id="home">
-  <a href="index.html">
+  <video width="640" autoplay muted loop disablepictureinpicture class="bg-video">
+    <source src="./videos/..." type="video/mp4" />
+  </video>
+  <div class="fade-bottom"></div>
+  <div class="overlay"></div>
+  <a href="">
     <img src="imgs/elpatron.jpg" class="core-img" alt="Logo Grande" />
   </a>
 </section>
@@ -122,32 +127,34 @@ Na seção `#about`, o conteúdo é agrupado em um `<article class="about-articl
 </section>
 ```
 
-Na seção `#structure`, o carrossel é composto por dois botões `.small-button` (com ícones Material Symbols) e uma `<ul class="carrousel-list">`. Cada imagem é um `<li class="carrousel-img">`; o item inicialmente visível recebe `id="visible"`. O JavaScript alterna esse id para controlar qual foto é exibida.
+Na seção `#structure`, o carrossel é composto por dois botões com a classe `.carousel-button` (com ícones Material Symbols) e uma `<ul class="carrousel-list">`. Cada imagem é um `<li class="carrousel-img">`; o item inicialmente visível recebe `id="visible"`. O JavaScript alterna esse id para controlar qual foto é exibida.
 
 ```html
 <section id="structure">
   <h2>Estrutura e espaço físico</h2>
   <div class="carrousel">
-    <button type="button" class="small-button" onclick="carrouselLeftClick()">
+    <button type="button" class="carousel-button" onclick="carrouselLeftClick()">
       <span class="material-symbols-outlined">chevron_left</span>
     </button>
     <ul class="carrousel-list">
       <li class="carrousel-img">
-        <figure><img src="imgs/..." alt="Foto 1" /></figure>
+        <img src="imgs/..." alt="Foto 1" />
       </li>
       <li class="carrousel-img" id="visible">
-        <figure><img src="imgs/..." alt="Foto 2" /></figure>
+        <img src="imgs/..." alt="Foto 2" />
       </li>
       <!-- mais fotos -->
     </ul>
-    <button type="button" class="small-button" onclick="carrouselRightClick()">
+    <button type="button" class="carousel-button" onclick="carrouselRightClick()">
       <span class="material-symbols-outlined">chevron_right</span>
     </button>
   </div>
 </section>
 ```
 
-A seção `#services` contém artigos com a classe `.services-article-card`. Cada card possui imagem(ns) e uma `<div class="services-article-text-box">` com título e descrição do serviço.
+> **Atenção:** os botões do carrossel agora usam a classe `.carousel-button` (sem o prefixo `small-`), que define um botão circular com `width: 15vw` e `max-width: 3.75rem`. Os `<li>` não têm mais `<figure>` envolvendo as imagens — a `<img>` é filha direta do `<li>`.
+
+A seção `#services` contém três artigos com a classe `.services-article-card`. Cada card possui imagem(ns) e uma `<div class="services-article-text-box">` com título e descrição. O card **Combo Corte + Barba** possui duas imagens empilhadas.
 
 ```html
 <section id="services">
@@ -160,7 +167,21 @@ A seção `#services` contém artigos com a classe `.services-article-card`. Cad
         <p>...</p>
       </div>
     </article>
-    <!-- demais artigos -->
+    <article class="services-article-card">
+      <img src="imgs/..." alt="Barba" />
+      <div class="services-article-text-box">
+        <h3>Barba</h3>
+        <p>...</p>
+      </div>
+    </article>
+    <article class="services-article-card">
+      <img src="imgs/..." alt="Combo corte e barba" />
+      <img src="imgs/..." alt="Combo corte e barba" />
+      <div class="services-article-text-box">
+        <h3>Combo Corte + Barba</h3>
+        <p>...</p>
+      </div>
+    </article>
   </section>
 </section>
 ```
@@ -171,14 +192,16 @@ A seção `#contact-us` contém um formulário de contato com campos de nome, e-
 <section id="contact-us">
   <h2>Fale conosco</h2>
   <form id="contact-form" onsubmit="sendMessage(event)">
-    <input type="text" id="full-name" name="full-name" placeholder="Nome Completo*" required class="text-input" /><br />
-    <input type="email" id="email" name="email" placeholder="Email*" required class="text-input" /><br />
-    <input type="tel" name="phone" id="phone" placeholder="Telefone" class="text-input" /><br />
+    <input type="text" id="full-name" name="full-name" placeholder="Nome Completo*" required class="text-input" />
+    <input type="email" id="email" name="email" placeholder="Email*" required class="text-input" />
+    <input type="tel" name="phone" id="phone" placeholder="Telefone" class="text-input" />
     <textarea name="message" id="message" placeholder="Mensagem*" required class="text-area-input"></textarea>
     <button type="submit" class="large-button">Enviar</button>
   </form>
 </section>
 ```
+
+> **Atenção:** os campos de input não têm mais `<br />` separando-os — o espaçamento é controlado pelo `gap` do flex container do formulário.
 
 A seção `#localization` exibe o endereço em `<address>` e um mapa embarcado via `<iframe>` apontando para a localização real da barbearia no Google Maps.
 
@@ -188,7 +211,13 @@ A seção `#localization` exibe o endereço em `<address>` e um mapa embarcado v
     <h2>Localização</h2>
     <address>Avenida lider 2465B, São Paulo, Brazil</address>
   </div>
-  <iframe src="https://www.google.com/maps/embed?..." style="border: 0" allowfullscreen loading="lazy"></iframe>
+  <iframe
+    src="https://www.google.com/maps/embed?..."
+    style="border: 0"
+    allowfullscreen
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
 </section>
 ```
 
@@ -224,11 +253,11 @@ Toda a paleta de cores e tipografia é definida como custom properties no `:root
 ```css
 :root {
   /* Paleta de cores */
-  --brown-darker: #272121;   /* fundo do body */
-  --brown-dark:   #534747;   /* fundo do header */
+  --brown-darker: #272121;      /* fundo do body */
+  --brown-dark:   #534747;      /* fundo do header */
   --brown-dark-active: #312a2a; /* fundo dos cards */
-  --red-normal:   #cc2936;   /* cor primária dos botões */
-  --silver-normal: #c2bfb3;  /* cor de texto secundário */
+  --red-normal:   #cc2936;      /* cor primária dos botões */
+  --silver-normal: #c2bfb3;     /* cor de texto secundário */
   /* ... demais variantes de brown, red, yellow, silver e blue */
 
   /* Tamanhos de fonte */
@@ -262,7 +291,7 @@ Adicionalmente:
 - `html` tem `overflow-x: hidden` — impede barra de rolagem horizontal causada por elementos que transbordam.
 - `ul` tem `list-style: none` — remove marcadores das listas de navegação e footer.
 - `a` tem `text-decoration: none` e `color: inherit` — links sem sublinhado, herdando a cor do elemento pai.
-- `img` tem `max-width: 100%`, `display: block` e `border-radius: 1rem` — imagens responsivas, sem espaço extra embaixo e com cantos arredondados.
+- `img` tem `display: block` e `border-radius: 1rem` — imagens sem espaço extra embaixo e com cantos arredondados.
 - `input`, `button` e `textarea` têm `appearance: none` e reset completo — remove estilos nativos do browser antes de aplicar os estilos do projeto.
 
 ---
@@ -282,15 +311,16 @@ Classes utilitárias adicionais: `.text-lead`, `.text-large`, `.text-muted` (apl
 
 ### Sistema de Botões
 
-O projeto define três variantes de botão. Todas compartilham `transition: background-color 0.2s ease, transform 0.1s ease` e um `transform: scale(0.97)` no `:active`.
+O projeto define três variantes de botão mais a classe específica `.carousel-button`. Todas compartilham `transition: background-color 0.2s ease, transform 0.1s ease` e um `transform: scale(0.97)` no `:active`.
 
 | Classe | Uso | Formato |
 | ------ | --- | ------- |
 | `.large-button` | Envio de formulário | Pílula (`border-radius: 10rem`), mínimo 10 × 3 rem |
 | `.medium-button` | Ação secundária (ex.: "Em breve...") | Retangular arredondado (`border-radius: 1rem`) |
-| `.small-button` | Navegação do carrossel | Circular (`border-radius: 100%`), máximo 3 × 3 rem |
+| `.small-button` | Uso genérico | Circular (`border-radius: 100%`), máximo 3 × 3 rem |
+| `.carousel-button` | Navegação do carrossel | Circular (`border-radius: 100%`), `width: 15vw`, `max-width: 3.75rem` |
 
-Todos usam `background-color: var(--red-normal)` e mudam para `--red-normal-hover` / `--red-normal-active` nos estados de interação.
+Todos usam `background-color: var(--red-normal)` e mudam para `--red-normal-hover` / `--red-normal-active` nos estados de interação. A classe `.carousel-button` substitui o uso de `.small-button` na navegação do carrossel.
 
 ---
 
@@ -308,13 +338,13 @@ Todos usam `background-color: var(--red-normal)` e mudam para `--red-normal-hove
 }
 ```
 
-Campos do formulário de contato com fundo branco, largura total (limitada a 35 rem) e padding interno. O `<textarea>` recebe `min-height: 10rem` via seletor específico no bloco `#contact-us`.
+Campos do formulário de contato com fundo branco, largura total (limitada a 35 rem) e padding interno. Os campos também recebem `font-size: 1.1rem` e `font-weight: 500` via seletores específicos no bloco `#contact-us`. O `<textarea>` recebe `min-height: 10rem`.
 
 ---
 
 ### Header
 
-Em **mobile**, o header é uma barra horizontal (`flex`) com `justify-content: space-between` separando logo e nav. O logo tem tamanho fixo de 4 × 4 rem. Os itens `.navbar-link` têm `padding: 0.5rem` e, no hover, ganham `background-color: var(--brown-normal-hover)` com `border-radius: 0.3rem`.
+Em **mobile**, o header começa oculto (`display: none`) e é exibido em modo coluna via `id="header-opened"` quando o hambúrguer é clicado. O botão hambúrguer (`#hamburger-button`) é um elemento `<img>` com `position: fixed`, `z-index: 1` e `width: 18vw` (máximo de 6 rem), garantindo que fique sempre visível sobre o conteúdo.
 
 ---
 
@@ -347,15 +377,18 @@ Toda seção recebe espaçamento interno padrão. A classe `.core-img` fixa `wid
 
 ```css
 #home {
+  background-color: var(--brown-darker);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 60vh;
 }
 #home img { max-height: 200px; object-fit: contain; }
+
+.bg-video { display: none; }
 ```
 
-Seção de destaque que ocupa pelo menos 60% da altura da viewport. O logo é centralizado horizontal e verticalmente.
+Seção de destaque que ocupa pelo menos 60% da altura da viewport. Em mobile, o vídeo de fundo fica oculto e apenas o logo é exibido centralizado. Em desktop, o vídeo é habilitado com `display: flex` e os elementos de sobreposição (`.overlay` e `.fade-bottom`) são posicionados com `z-index` para criar a hierarquia visual correta.
 
 ---
 
@@ -373,24 +406,32 @@ Seção de destaque que ocupa pelo menos 60% da altura da viewport. O logo é ce
 .about-text-box {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.5rem;
 }
 .about-text-box p { color: var(--silver-normal); }
 ```
 
-Em mobile, o card usa `grid-template-rows: auto 1fr` — a imagem ocupa seu tamanho natural e `.about-text-box` preenche a altura restante. Em desktop, muda para `grid-template-columns: 1fr 1fr` (imagem e texto lado a lado).
+Em mobile, o card usa `grid-template-rows: auto 1fr` — a imagem ocupa seu tamanho natural e `.about-text-box` preenche a altura restante. Em desktop, muda para `grid-template-columns: 1fr 1fr` (imagem e texto lado a lado), com `justify-content: space-between` no `.about-text-box` para empurrar o botão para a base.
 
 ---
 
 ### `#structure` — Estrutura / Galeria
 
 ```css
-.carrousel { display: flex; align-items: center; }
-.carrousel-img { display: none; }
-#visible     { display: flex; }
+.carrousel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 65vw;
+  gap: 1rem;
+}
+.carrousel-list { width: 100%; height: 100%; }
+.carrousel-img  { display: none; width: 100%; }
+#visible        { display: flex; }
 ```
 
-Apenas o `<li>` com `id="visible"` é exibido; todos os outros ficam ocultos. `.carrousel-list` recebe `display: flex` e `gap: 0.5rem`; em desktop ganha `flex: 1` e `justify-content: center`.
+Apenas o `<li>` com `id="visible"` é exibido; todos os outros ficam ocultos. Em desktop o carrossel cresce para `width: 90vw` e `height: 75vh`, com `max-width: 70rem`.
 
 ---
 
@@ -433,7 +474,7 @@ Em mobile, os cards são empilhados verticalmente. Em desktop (`#services > sect
 #contact-us button        { margin-top: 1rem; }
 ```
 
-O formulário é centralizado com todos os campos empilhados verticalmente e limitados a `35rem` de largura.
+O formulário é centralizado com todos os campos empilhados verticalmente e limitados a `35rem` de largura. Em desktop, o `gap` do formulário aumenta para `1rem`.
 
 ---
 
@@ -442,10 +483,11 @@ O formulário é centralizado com todos os campos empilhados verticalmente e lim
 ```css
 #localization { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
 #localization iframe { width: 100%; min-height: 300px; border: none; }
+.localization-text > * { text-align: center; }
 .localization-text address { color: var(--silver-normal); }
 ```
 
-Seção exibindo endereço em `<address>` e mapa via `<iframe>`. O mapa ocupa 100% da largura com altura mínima de 300 px e sem borda.
+Seção exibindo endereço em `<address>` e mapa via `<iframe>`. Todos os elementos de `.localization-text` ficam centralizados via `text-align: center`. Em desktop a seção ganha `max-width: 44rem`.
 
 ---
 
@@ -466,23 +508,52 @@ Links centralizados com `flex-wrap`, permitindo quebra de linha em telas pequena
 
 ### Responsividade — Desktop (`min-width: 768px`)
 
-A partir de **768 px**, o layout muda de empilhado para sidebar + conteúdo via `display: grid` no `body`:
+A partir de **768 px**, o layout muda de empilhado para um header horizontal fixo no topo. O `body` passa para `display: block` e o `<main>` centraliza seu conteúdo com `align-items: center`:
 
 | Elemento | Comportamento em desktop |
 |----------|--------------------------|
-| `body` | `display: grid; grid-template-columns: 15.5rem 1fr` — header ocupa a coluna da esquerda |
-| `header` | Sidebar vertical com `height: 100vh`, `position: sticky` e `top: 0` |
-| `nav > ul` | Itens da nav empilhados em coluna |
+| `body` | `display: block` — sem grid, o header ocupa largura total no topo |
+| `header` | Barra horizontal superior com `display: flex`, `flex-direction: row`, `position: absolute`, `background: transparent` e `width: 100vw` |
+| `nav > ul` | Itens da nav em linha (`flex-direction: row`), `justify-content: space-evenly` |
+| `header a` | Logo com `width: 10vh` e `max-width: 5rem` |
+| `#hamburger-button` | `display: none` — ocultado em desktop |
+| `.bg-video` | `display: flex`, posicionado absolutamente sobre a hero com `object-fit: cover` |
+| `.fade-bottom` | Gradiente de `rgba(0,0,0,0)` até `var(--brown-darker)`, `height: 75px`, `z-index: 2` |
+| `#home .overlay` | `background: rgba(0,0,0,0.85)`, `z-index: 1` |
 | `section` | Padding aumentado para `3rem 2rem` |
 | `--text-h1/h2/h3/h4` | Tamanhos de fonte maiores redefinidos no `:root` da media query |
 | `.about-article-card` | `grid-template-columns: 1fr 1fr` — imagem e texto lado a lado |
-| `#structure li` | `flex: 0 0 30%`, cabendo mais fotos por linha |
-| `.carrousel-list` | `flex: 1` + `justify-content: center` para centralizar a foto visível entre os botões |
+| `.carrousel` | `width: 90vw; height: 75vh; max-width: 70rem` |
 | `#services > section` | Cards de serviço em linha (`flex-direction: row`) |
+| `#localization` | `max-width: 44rem` |
 
 ---
 
 ## Tutorial — `script.js`
+
+### Menu hambúrguer
+
+A função `toggleNavbar()` controla a abertura e fechamento do header em mobile. Ela alterna o `id` do `<header>` entre `"header-closed"` e `"header-opened"`, estados que correspondem às regras `display: none` e `display: flex` no CSS.
+
+```js
+function toggleNavbar() {
+  const header = document.getElementsByTagName("header")[0];
+  const currState = header.id;
+  const body = document.getElementsByTagName("body")[0];
+
+  if (currState == "header-closed") {
+    body.style.gridTemplateColumns = "9rem 1fr";
+    header.id = "header-opened";
+  } else {
+    body.style.removeProperty("grid-template-columns");
+    header.id = "header-closed";
+  }
+}
+```
+
+Quando o header é aberto, o `body` recebe `grid-template-columns: "9rem 1fr"` via JavaScript para acomodar o sidebar lateral. Ao fechar, a propriedade é removida com `removeProperty`, devolvendo o layout original.
+
+---
 
 ### Carrossel interativo
 
