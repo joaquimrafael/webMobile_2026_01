@@ -86,12 +86,12 @@ Em mobile, o header fica oculto por padrão (`id="header-closed"`) e é aberto/f
 <header id="header-closed">
   <nav>
     <ul>
-      <li class="navbar-link"><a href="#home">Home</a></li>
-      <li class="navbar-link"><a href="#about">Sobre nós</a></li>
-      <li class="navbar-link"><a href="#structure">Estrutura</a></li>
-      <li class="navbar-link"><a href="#services">Serviços</a></li>
-      <li class="navbar-link"><a href="#contact-us">Fale conosco</a></li>
-      <li class="navbar-link"><a href="#localization">Localização</a></li>
+      <li class="navbar-link"><a href="#home" onclick="toggleNavbar()">Home</a></li>
+      <li class="navbar-link"><a href="#about" onclick="toggleNavbar()">Sobre nós</a></li>
+      <li class="navbar-link"><a href="#structure" onclick="toggleNavbar()">Estrutura</a></li>
+      <li class="navbar-link"><a href="#services" onclick="toggleNavbar()">Serviços</a></li>
+      <li class="navbar-link"><a href="#contact-us" onclick="toggleNavbar()">Fale conosco</a></li>
+      <li class="navbar-link"><a href="#localization" onclick="toggleNavbar()">Localização</a></li>
     </ul>
   </nav>
 </header>
