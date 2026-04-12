@@ -1,3 +1,6 @@
 # Qualquer TO DO que, por ventura, resolvermos fazer
 *.txt
-to-do.txt
+
+# Arquivos do code assistant
+CLAUDE.*
+
